@@ -42,6 +42,11 @@ public class Klub {
 	
 	@OneToOne
 	private Trener trener;
+	
+	@OneToOne
+	private Tabela tabela;
+	
+	
 
 	public Klub() {
 		super();

@@ -61,6 +61,7 @@ public class Utakmica {
 	@ManyToOne
 	private Takmicenje takmicenje;
 	
+	
 	@ManyToOne 
 	private Sudija sudija;
 

@@ -1,13 +1,19 @@
 package com.ftninformatika.rent.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Tabela {
@@ -16,11 +22,14 @@ public class Tabela {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@ManyToOne
+	@OneToOne
 	private Klub klub;
 	
-	@ManyToOne
-	private Utakmica utakmica;
+	@OneToMany(mappedBy = "tabela", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Utakmica> utakmice = new ArrayList<>();
+	
+	@OneToOne
+	private Takmicenje takmicenje;
 	
 	@Column
 	private int bodovi;
@@ -39,29 +48,48 @@ public class Tabela {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tabela(Long id, Klub klub, Utakmica utakmica, int bodovi) {
-		super();
-		this.id = id;
-		this.klub = klub;
-		this.utakmica = utakmica;
-		this.bodovi = bodovi;
-	}
+	
 
-	public Tabela(Long id, Klub klub, Utakmica utakmica, int bodovi, int pozicija, boolean prolaz, boolean ispadanje) {
+	
+
+	public Tabela(Long id, Klub klub, List<Utakmica> utakmice, int bodovi, int pozicija, boolean prolaz,
+			boolean ispadanje) {
 		super();
 		this.id = id;
 		this.klub = klub;
-		this.utakmica = utakmica;
+		this.utakmice = utakmice;
 		this.bodovi = bodovi;
 		this.pozicija = pozicija;
 		this.prolaz = prolaz;
 		this.ispadanje = ispadanje;
 	}
 
+
+
+
+
+	public Tabela(Long id, Klub klub, int bodovi, int pozicija, boolean prolaz, boolean ispadanje) {
+		super();
+		this.id = id;
+		this.klub = klub;
+		this.bodovi = bodovi;
+		this.pozicija = pozicija;
+		this.prolaz = prolaz;
+		this.ispadanje = ispadanje;
+	}
+
+
+	
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(bodovi, id, ispadanje, klub, pozicija, prolaz, utakmica);
+		return Objects.hash(bodovi, id, ispadanje, klub, pozicija, prolaz, utakmice);
 	}
+
+
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -74,8 +102,12 @@ public class Tabela {
 		Tabela other = (Tabela) obj;
 		return bodovi == other.bodovi && Objects.equals(id, other.id) && ispadanje == other.ispadanje
 				&& Objects.equals(klub, other.klub) && pozicija == other.pozicija && prolaz == other.prolaz
-				&& Objects.equals(utakmica, other.utakmica);
+				&& Objects.equals(utakmice, other.utakmice);
 	}
+
+
+
+
 
 	public Long getId() {
 		return id;
@@ -93,12 +125,14 @@ public class Tabela {
 		this.klub = klub;
 	}
 
-	public Utakmica getUtakmica() {
-		return utakmica;
+	
+
+	public List<Utakmica> getUtakmice() {
+		return utakmice;
 	}
 
-	public void setUtakmica(Utakmica utakmica) {
-		this.utakmica = utakmica;
+	public void setUtakmice(List<Utakmica> utakmice) {
+		this.utakmice = utakmice;
 	}
 
 	public int getBodovi() {
@@ -135,9 +169,11 @@ public class Tabela {
 
 	@Override
 	public String toString() {
-		return "Tabela [id=" + id + ", klub=" + klub + ", utakmica=" + utakmica + ", bodovi=" + bodovi + ", pozicija="
+		return "Tabela [id=" + id + ", klub=" + klub + ", utakmice=" + utakmice + ", bodovi=" + bodovi + ", pozicija="
 				+ pozicija + ", prolaz=" + prolaz + ", ispadanje=" + ispadanje + "]";
 	}
+
+	
 	
 	
 }
