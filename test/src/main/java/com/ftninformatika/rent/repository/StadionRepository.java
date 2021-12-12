@@ -10,5 +10,5 @@ import com.ftninformatika.rent.model.Stadion;
 @Repository
 public interface StadionRepository extends JpaRepository<Stadion, Long> {
 
-	List<Stadion> findByGradId(Long id);
+	
 }

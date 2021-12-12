@@ -31,8 +31,11 @@ public class Stadion {
 	@Column
 	private int kapacitet;
 	
-	@ManyToOne
-	private Grad grad;
+	@Column
+	private String drzava;
+	
+	@Column
+	private String grad;
 	
 	@OneToMany(mappedBy = "stadion", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Klub> klubovi = new ArrayList<>();
@@ -42,14 +45,19 @@ public class Stadion {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Stadion(Long id, String naziv, int kapacitet, Grad grad, List<Klub> klubovi) {
+	
+
+	public Stadion(Long id, String naziv, int kapacitet, String drzava, String grad, List<Klub> klubovi) {
 		super();
 		this.id = id;
 		this.naziv = naziv;
 		this.kapacitet = kapacitet;
+		this.drzava = drzava;
 		this.grad = grad;
 		this.klubovi = klubovi;
 	}
+
+
 
 	public Stadion(Long id, String naziv, int kapacitet) {
 		super();
@@ -58,10 +66,14 @@ public class Stadion {
 		this.kapacitet = kapacitet;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(grad, id, kapacitet, klubovi, naziv);
+		return Objects.hash(drzava, grad, id, kapacitet, klubovi, naziv);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -72,9 +84,12 @@ public class Stadion {
 		if (getClass() != obj.getClass())
 			return false;
 		Stadion other = (Stadion) obj;
-		return Objects.equals(grad, other.grad) && Objects.equals(id, other.id) && kapacitet == other.kapacitet
-				&& Objects.equals(klubovi, other.klubovi) && Objects.equals(naziv, other.naziv);
+		return Objects.equals(drzava, other.drzava) && Objects.equals(grad, other.grad) && Objects.equals(id, other.id)
+				&& kapacitet == other.kapacitet && Objects.equals(klubovi, other.klubovi)
+				&& Objects.equals(naziv, other.naziv);
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -100,13 +115,7 @@ public class Stadion {
 		this.kapacitet = kapacitet;
 	}
 
-	public Grad getGrad() {
-		return grad;
-	}
-
-	public void setGrad(Grad grad) {
-		this.grad = grad;
-	}
+	
 
 	public List<Klub> getKlubovi() {
 		return klubovi;
@@ -116,11 +125,39 @@ public class Stadion {
 		this.klubovi = klubovi;
 	}
 
+
+
+	public String getDrzava() {
+		return drzava;
+	}
+
+
+
+	public void setDrzava(String drzava) {
+		this.drzava = drzava;
+	}
+
+
+
+	public String getGrad() {
+		return grad;
+	}
+
+
+
+	public void setGrad(String grad) {
+		this.grad = grad;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Stadion [id=" + id + ", naziv=" + naziv + ", kapacitet=" + kapacitet + ", grad=" + grad + ", klubovi="
-				+ klubovi + "]";
+		return "Stadion [id=" + id + ", naziv=" + naziv + ", kapacitet=" + kapacitet + ", drzava=" + drzava + ", grad="
+				+ grad + ", klubovi=" + klubovi + "]";
 	}
+
+	
 	
 	
 }

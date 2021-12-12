@@ -1,10 +1,17 @@
 package com.ftninformatika.rent.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Takmicenje {
@@ -21,6 +28,12 @@ public class Takmicenje {
 	
 	@Column
 	private int godina;
+	
+	@ManyToOne
+	private Tabela tabela;
+	
+	@OneToMany(mappedBy = "takmicenje", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Utakmica> utakmice = new ArrayList<>();
 
 	public Takmicenje() {
 		super();
@@ -33,6 +46,30 @@ public class Takmicenje {
 		this.nazivTakmicenja = nazivTakmicenja;
 		this.organizator = organizator;
 		this.godina = godina;
+	}
+	
+	
+
+	public Takmicenje(Long id, String nazivTakmicenja, String organizator, int godina, Tabela tabela) {
+		super();
+		this.id = id;
+		this.nazivTakmicenja = nazivTakmicenja;
+		this.organizator = organizator;
+		this.godina = godina;
+		this.tabela = tabela;
+	}
+	
+	
+
+	public Takmicenje(Long id, String nazivTakmicenja, String organizator, int godina, Tabela tabela,
+			List<Utakmica> utakmice) {
+		super();
+		this.id = id;
+		this.nazivTakmicenja = nazivTakmicenja;
+		this.organizator = organizator;
+		this.godina = godina;
+		this.tabela = tabela;
+		this.utakmice = utakmice;
 	}
 
 	public Long getId() {
@@ -66,6 +103,33 @@ public class Takmicenje {
 	public void setGodina(int godina) {
 		this.godina = godina;
 	}
+
+	public Tabela getTabela() {
+		return tabela;
+	}
+
+	public void setTabela(Tabela tabela) {
+		this.tabela = tabela;
+	}
+	
+	
+
+	public List<Utakmica> getUtakmice() {
+		return utakmice;
+	}
+
+	public void setUtakmice(List<Utakmica> utakmice) {
+		this.utakmice = utakmice;
+	}
+
+	@Override
+	public String toString() {
+		return "Takmicenje [id=" + id + ", nazivTakmicenja=" + nazivTakmicenja + ", organizator=" + organizator
+				+ ", godina=" + godina + ", tabela=" + tabela + ", utakmice=" + utakmice + "]";
+	}
+
+
+
 	
 	
 }

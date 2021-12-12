@@ -49,6 +49,8 @@ public class Utakmica {
 	@Column
 	private int posedGost;
 	
+	
+	
 	@OneToMany(mappedBy = "utakmica", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Gol> golovi = new ArrayList<>();
 	
@@ -56,11 +58,16 @@ public class Utakmica {
 	private Stadion stadion;
 	
 	@Column
-	private String rezultat;
+	private int goloviDomacin;
+	
+	@Column
+	private int goloviGost;
 	
 	@ManyToOne
 	private Takmicenje takmicenje;
 	
+	@Column
+	private int kolo;
 	
 	@ManyToOne 
 	private Sudija sudija;
@@ -76,9 +83,30 @@ public class Utakmica {
 		this.datumIVreme = datumIVreme;
 	}
 
+	
+
+	
+
+	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, List<Gol> golovi,
+			int goloviDomacin, int goloviGost, Takmicenje takmicenje, int kolo) {
+		super();
+		this.id = id;
+		this.datumIVreme = datumIVreme;
+		this.klubDomacin = klubDomacin;
+		this.klubGost = klubGost;
+		this.golovi = golovi;
+		this.goloviDomacin = goloviDomacin;
+		this.goloviGost = goloviGost;
+		this.takmicenje = takmicenje;
+		this.kolo = kolo;
+	}
+
+	
+
 	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, int suteviDomacin,
 			int suteviGost, int suteviUGolDomacin, int suteviUGolGost, int posedDomacin, int posedGost,
-			List<Gol> golovi, Stadion stadion, String rezultat, Takmicenje takmicenje, Sudija sudija) {
+			List<Gol> golovi, Stadion stadion, int goloviDomacin, int goloviGost, Takmicenje takmicenje, int kolo,
+			Sudija sudija) {
 		super();
 		this.id = id;
 		this.datumIVreme = datumIVreme;
@@ -92,15 +120,19 @@ public class Utakmica {
 		this.posedGost = posedGost;
 		this.golovi = golovi;
 		this.stadion = stadion;
-		this.rezultat = rezultat;
+		this.goloviDomacin = goloviDomacin;
+		this.goloviGost = goloviGost;
 		this.takmicenje = takmicenje;
+		this.kolo = kolo;
 		this.sudija = sudija;
 	}
 
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(datumIVreme, golovi, id, klubDomacin, klubGost, posedDomacin, posedGost, rezultat, stadion,
-				sudija, suteviDomacin, suteviGost, suteviUGolDomacin, suteviUGolGost, takmicenje);
+		return Objects.hash(datumIVreme, golovi, goloviDomacin, goloviGost, id, klubDomacin, klubGost, kolo,
+				posedDomacin, posedGost, stadion, sudija, suteviDomacin, suteviGost, suteviUGolDomacin, suteviUGolGost,
+				takmicenje);
 	}
 
 	@Override
@@ -113,13 +145,13 @@ public class Utakmica {
 			return false;
 		Utakmica other = (Utakmica) obj;
 		return Objects.equals(datumIVreme, other.datumIVreme) && Objects.equals(golovi, other.golovi)
+				&& goloviDomacin == other.goloviDomacin && goloviGost == other.goloviGost
 				&& Objects.equals(id, other.id) && Objects.equals(klubDomacin, other.klubDomacin)
-				&& Objects.equals(klubGost, other.klubGost) && posedDomacin == other.posedDomacin
-				&& posedGost == other.posedGost && Objects.equals(rezultat, other.rezultat)
-				&& Objects.equals(stadion, other.stadion) && Objects.equals(sudija, other.sudija)
-				&& suteviDomacin == other.suteviDomacin && suteviGost == other.suteviGost
-				&& suteviUGolDomacin == other.suteviUGolDomacin && suteviUGolGost == other.suteviUGolGost
-				&& Objects.equals(takmicenje, other.takmicenje);
+				&& Objects.equals(klubGost, other.klubGost) && kolo == other.kolo && posedDomacin == other.posedDomacin
+				&& posedGost == other.posedGost && Objects.equals(stadion, other.stadion)
+				&& Objects.equals(sudija, other.sudija) && suteviDomacin == other.suteviDomacin
+				&& suteviGost == other.suteviGost && suteviUGolDomacin == other.suteviUGolDomacin
+				&& suteviUGolGost == other.suteviUGolGost && Objects.equals(takmicenje, other.takmicenje);
 	}
 
 	public Long getId() {
@@ -218,12 +250,30 @@ public class Utakmica {
 		this.stadion = stadion;
 	}
 
-	public String getRezultat() {
-		return rezultat;
+	
+
+	public int getGoloviDomacin() {
+		return goloviDomacin;
 	}
 
-	public void setRezultat(String rezultat) {
-		this.rezultat = rezultat;
+	public void setGoloviDomacin(int goloviDomacin) {
+		this.goloviDomacin = goloviDomacin;
+	}
+
+	public int getGoloviGost() {
+		return goloviGost;
+	}
+
+	public void setGoloviGost(int goloviGost) {
+		this.goloviGost = goloviGost;
+	}
+
+	public int getKolo() {
+		return kolo;
+	}
+
+	public void setKolo(int kolo) {
+		this.kolo = kolo;
 	}
 
 	public Takmicenje getTakmicenje() {
@@ -247,9 +297,12 @@ public class Utakmica {
 		return "Utakmica [id=" + id + ", datumIVreme=" + datumIVreme + ", klubDomacin=" + klubDomacin + ", klubGost="
 				+ klubGost + ", suteviDomacin=" + suteviDomacin + ", suteviGost=" + suteviGost + ", suteviUGolDomacin="
 				+ suteviUGolDomacin + ", suteviUGolGost=" + suteviUGolGost + ", posedDomacin=" + posedDomacin
-				+ ", posedGost=" + posedGost + ", golovi=" + golovi + ", stadion=" + stadion + ", rezultat=" + rezultat
-				+ ", takmicenje=" + takmicenje + ", sudija=" + sudija + "]";
+				+ ", posedGost=" + posedGost + ", golovi=" + golovi + ", stadion=" + stadion + ", goloviDomacin="
+				+ goloviDomacin + ", goloviGost=" + goloviGost + ", takmicenje=" + takmicenje + ", kolo=" + kolo
+				+ ", sudija=" + sudija + "]";
 	}
+
+	
 	
 	
 	

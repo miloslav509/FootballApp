@@ -11,7 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -25,8 +25,6 @@ public class Tabela {
 	@OneToOne
 	private Klub klub;
 	
-	@OneToMany(mappedBy = "tabela", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Utakmica> utakmice = new ArrayList<>();
 	
 	@OneToOne
 	private Takmicenje takmicenje;
@@ -36,6 +34,15 @@ public class Tabela {
 	
 	@Column
 	private int pozicija;
+	
+	@Column
+	private int pobede;
+	
+	@Column
+	private int porazi;
+	
+	@Column
+	private int nereseneUtakmice;
 	
 	@Column
 	private boolean prolaz = false;
@@ -52,22 +59,6 @@ public class Tabela {
 
 	
 
-	public Tabela(Long id, Klub klub, List<Utakmica> utakmice, int bodovi, int pozicija, boolean prolaz,
-			boolean ispadanje) {
-		super();
-		this.id = id;
-		this.klub = klub;
-		this.utakmice = utakmice;
-		this.bodovi = bodovi;
-		this.pozicija = pozicija;
-		this.prolaz = prolaz;
-		this.ispadanje = ispadanje;
-	}
-
-
-
-
-
 	public Tabela(Long id, Klub klub, int bodovi, int pozicija, boolean prolaz, boolean ispadanje) {
 		super();
 		this.id = id;
@@ -77,14 +68,41 @@ public class Tabela {
 		this.prolaz = prolaz;
 		this.ispadanje = ispadanje;
 	}
+	
+	
+
+	
+
+
+
+
+	public Tabela(Long id, Klub klub, Takmicenje takmicenje, int bodovi, int pozicija, int pobede, int porazi,
+			int nereseneUtakmice, boolean prolaz, boolean ispadanje) {
+		super();
+		this.id = id;
+		this.klub = klub;
+		this.takmicenje = takmicenje;
+		this.bodovi = bodovi;
+		this.pozicija = pozicija;
+		this.pobede = pobede;
+		this.porazi = porazi;
+		this.nereseneUtakmice = nereseneUtakmice;
+		this.prolaz = prolaz;
+		this.ispadanje = ispadanje;
+	}
+
+
+
 
 
 	
 
 
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(bodovi, id, ispadanje, klub, pozicija, prolaz, utakmice);
+		return Objects.hash(bodovi, id, ispadanje, klub, nereseneUtakmice, pobede, porazi, pozicija, prolaz,
+				takmicenje);
 	}
 
 
@@ -101,8 +119,9 @@ public class Tabela {
 			return false;
 		Tabela other = (Tabela) obj;
 		return bodovi == other.bodovi && Objects.equals(id, other.id) && ispadanje == other.ispadanje
-				&& Objects.equals(klub, other.klub) && pozicija == other.pozicija && prolaz == other.prolaz
-				&& Objects.equals(utakmice, other.utakmice);
+				&& Objects.equals(klub, other.klub) && nereseneUtakmice == other.nereseneUtakmice
+				&& pobede == other.pobede && porazi == other.porazi && pozicija == other.pozicija
+				&& prolaz == other.prolaz && Objects.equals(takmicenje, other.takmicenje);
 	}
 
 
@@ -126,14 +145,6 @@ public class Tabela {
 	}
 
 	
-
-	public List<Utakmica> getUtakmice() {
-		return utakmice;
-	}
-
-	public void setUtakmice(List<Utakmica> utakmice) {
-		this.utakmice = utakmice;
-	}
 
 	public int getBodovi() {
 		return bodovi;
@@ -167,11 +178,85 @@ public class Tabela {
 		this.ispadanje = ispadanje;
 	}
 
+	
+	public Takmicenje getTakmicenje() {
+		return takmicenje;
+	}
+
+
+
+
+
+	public void setTakmicenje(Takmicenje takmicenje) {
+		this.takmicenje = takmicenje;
+	}
+
+
+
+
+
+	public int getPobede() {
+		return pobede;
+	}
+
+
+
+
+
+	public void setPobede(int pobede) {
+		this.pobede = pobede;
+	}
+
+
+
+
+
+	public int getPorazi() {
+		return porazi;
+	}
+
+
+
+
+
+	public void setPorazi(int porazi) {
+		this.porazi = porazi;
+	}
+
+
+
+
+
+	public int getNereseneUtakmice() {
+		return nereseneUtakmice;
+	}
+
+
+
+
+
+	public void setNereseneUtakmice(int nereseneUtakmice) {
+		this.nereseneUtakmice = nereseneUtakmice;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Tabela [id=" + id + ", klub=" + klub + ", utakmice=" + utakmice + ", bodovi=" + bodovi + ", pozicija="
-				+ pozicija + ", prolaz=" + prolaz + ", ispadanje=" + ispadanje + "]";
+		return "Tabela [id=" + id + ", klub=" + klub + ", takmicenje=" + takmicenje + ", bodovi=" + bodovi
+				+ ", pozicija=" + pozicija + ", pobede=" + pobede + ", porazi=" + porazi + ", nereseneUtakmice="
+				+ nereseneUtakmice + ", prolaz=" + prolaz + ", ispadanje=" + ispadanje + "]";
 	}
+
+
+
+
+
+	
+
+	
 
 	
 	
