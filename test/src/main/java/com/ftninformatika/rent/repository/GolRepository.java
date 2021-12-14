@@ -10,7 +10,7 @@ import com.ftninformatika.rent.model.Gol;
 @Repository
 public interface GolRepository extends JpaRepository<Gol, Long> {
 	
-	List<Gol> findByStrelacId(Long id);
+	List<Gol> findByStrelacGolaId(Long id);
 
 	List<Gol> findByAsistentId(Long id);
 	
