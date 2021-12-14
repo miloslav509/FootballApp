@@ -8,4 +8,5 @@ import com.ftninformatika.rent.model.Trener;
 @Repository
 public interface TrenerRepository extends JpaRepository<Trener, Long> {
 
+	Trener findByKlubId(Long id);
 }

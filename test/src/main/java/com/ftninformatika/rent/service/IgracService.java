@@ -10,11 +10,11 @@ public interface IgracService {
 	
 	List<Igrac> findAll();
 	
-	List<Igrac> findByGolId(Long id);
+	List<Igrac> findByGol(Long id);
 	
-	List<Igrac> findByAsistId(Long id);
+	List<Igrac> findByAsist(Long id);
 	
-	List<Igrac> findByKlubId(Long id);
+	List<Igrac> findByKlub(Long id);
 	
 	Igrac save(Igrac igrac);
 	

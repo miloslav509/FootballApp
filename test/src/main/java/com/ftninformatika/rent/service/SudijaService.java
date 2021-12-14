@@ -16,5 +16,5 @@ public interface SudijaService {
 	
 	Sudija delete(Long id);
 	
-	Sudija findByUtakmicaId(Long id);
+	Sudija findByUtakmica(Long id);
 }

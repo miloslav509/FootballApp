@@ -16,5 +16,5 @@ public interface StadionService {
 	
 	Stadion delete(Long id);
 	
-	Stadion findByKlubId(Long id);
+	Stadion findByKlub(Long id);
 }

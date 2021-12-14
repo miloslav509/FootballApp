@@ -10,11 +10,11 @@ public interface GolService {
 	
 	List<Gol> findAll();
 	
-	List<Gol> findByStrelacId(Long id);
+	List<Gol> findByStrelac(Long id);
 	
-	List<Gol> findByAsistentId(Long id);
+	List<Gol> findByAsistent(Long id);
 	
-	List<Gol> findByUtakmicaId(Long id);
+	List<Gol> findByUtakmica(Long id);
 	
 	Gol save(Gol gol);
 	

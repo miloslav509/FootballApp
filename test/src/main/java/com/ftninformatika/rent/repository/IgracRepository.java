@@ -10,5 +10,9 @@ import com.ftninformatika.rent.model.Igrac;
 @Repository
 public interface IgracRepository extends JpaRepository<Igrac, Long> {
 
+	List<Igrac> findByGolId(Long id);
+	
+	List<Igrac> findByAsistId(Long id);
+	
 	List<Igrac> findByKlubId(Long id);
 }
