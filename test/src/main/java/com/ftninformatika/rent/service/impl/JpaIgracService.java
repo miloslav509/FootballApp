@@ -30,13 +30,13 @@ public class JpaIgracService implements IgracService {
 	@Override
 	public List<Igrac> findByGol(Long id) {
 		
-		return igracRepository.findByGolId(id);
+		return igracRepository.findByGoloviId(id);
 	}
 
 	@Override
 	public List<Igrac> findByAsist(Long id) {
 		
-		return igracRepository.findByAsistId(id);
+		return igracRepository.findByAsistencijeId(id);
 	}
 
 	@Override

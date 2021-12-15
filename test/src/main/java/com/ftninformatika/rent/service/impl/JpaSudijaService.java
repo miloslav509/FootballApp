@@ -52,7 +52,7 @@ public class JpaSudijaService implements SudijaService {
 	@Override
 	public Sudija findByUtakmica(Long id) {
 		
-		return sudijaRepository.findByUtakmicaId(id);
+		return sudijaRepository.findByUtakmiceId(id);
 	}
 	
 	

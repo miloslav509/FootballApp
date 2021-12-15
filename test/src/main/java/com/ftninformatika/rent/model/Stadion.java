@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 
@@ -37,8 +38,8 @@ public class Stadion {
 	@Column
 	private String grad;
 	
-	@OneToMany(mappedBy = "stadion", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Klub> klubovi = new ArrayList<>();
+	@OneToOne
+	private Klub klub;
 
 	public Stadion() {
 		super();
@@ -47,14 +48,14 @@ public class Stadion {
 
 	
 
-	public Stadion(Long id, String naziv, int kapacitet, String drzava, String grad, List<Klub> klubovi) {
+	public Stadion(Long id, String naziv, int kapacitet, String drzava, String grad, Klub klub) {
 		super();
 		this.id = id;
 		this.naziv = naziv;
 		this.kapacitet = kapacitet;
 		this.drzava = drzava;
 		this.grad = grad;
-		this.klubovi = klubovi;
+		this.klub = klub;
 	}
 
 
@@ -68,9 +69,13 @@ public class Stadion {
 
 	
 
+	
+
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(drzava, grad, id, kapacitet, klubovi, naziv);
+		return Objects.hash(drzava, grad, id, kapacitet, klub, naziv);
 	}
 
 
@@ -85,7 +90,7 @@ public class Stadion {
 			return false;
 		Stadion other = (Stadion) obj;
 		return Objects.equals(drzava, other.drzava) && Objects.equals(grad, other.grad) && Objects.equals(id, other.id)
-				&& kapacitet == other.kapacitet && Objects.equals(klubovi, other.klubovi)
+				&& kapacitet == other.kapacitet && Objects.equals(klub, other.klub)
 				&& Objects.equals(naziv, other.naziv);
 	}
 
@@ -117,12 +122,18 @@ public class Stadion {
 
 	
 
-	public List<Klub> getKlubovi() {
-		return klubovi;
+	
+
+
+
+	public Klub getKlub() {
+		return klub;
 	}
 
-	public void setKlubovi(List<Klub> klubovi) {
-		this.klubovi = klubovi;
+
+
+	public void setKlub(Klub klub) {
+		this.klub = klub;
 	}
 
 
@@ -154,8 +165,12 @@ public class Stadion {
 	@Override
 	public String toString() {
 		return "Stadion [id=" + id + ", naziv=" + naziv + ", kapacitet=" + kapacitet + ", drzava=" + drzava + ", grad="
-				+ grad + ", klubovi=" + klubovi + "]";
+				+ grad + ", klub=" + klub + "]";
 	}
+
+
+
+	
 
 	
 	

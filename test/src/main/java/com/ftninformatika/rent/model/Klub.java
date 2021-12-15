@@ -28,7 +28,7 @@ public class Klub {
 	@Column
 	private String naziv;
 	
-	@ManyToOne
+	@OneToOne
 	private Stadion stadion;
 	
 	@OneToMany(mappedBy = "klub", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

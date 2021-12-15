@@ -36,13 +36,13 @@ public class JpaUtakmicaService implements UtakmicaService {
 	@Override
 	public List<Utakmica> findByKlubDomacin(Long id) {
 		
-		return utakmicaRepository.findByDomacinId(id);
+		return utakmicaRepository.findByKlubDomacinId(id);
 	}
 
 	@Override
 	public List<Utakmica> findByKlubGost(Long id) {
 		
-		return utakmicaRepository.findByGostId(id);
+		return utakmicaRepository.findByKlubGostId(id);
 	}
 
 	@Override

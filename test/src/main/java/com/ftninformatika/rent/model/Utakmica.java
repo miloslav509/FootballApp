@@ -50,7 +50,6 @@ public class Utakmica {
 	private int posedGost;
 	
 	
-	
 	@OneToMany(mappedBy = "utakmica", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Gol> golovi = new ArrayList<>();
 	

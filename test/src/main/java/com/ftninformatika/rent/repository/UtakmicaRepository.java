@@ -12,9 +12,9 @@ public interface UtakmicaRepository extends JpaRepository<Utakmica, Long> {
 	
 	List<Utakmica> findByTakmicenjeId(Long id);
 	
-	List<Utakmica> findByDomacinId(Long id);
+	List<Utakmica> findByKlubDomacinId(Long id);
 	
-	List<Utakmica> findByGostId(Long id);
+	List<Utakmica> findByKlubGostId(Long id);
 	
 	List<Utakmica> findByStadionId(Long id);
 	

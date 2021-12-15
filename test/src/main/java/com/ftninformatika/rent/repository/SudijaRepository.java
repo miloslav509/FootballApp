@@ -8,5 +8,5 @@ import com.ftninformatika.rent.model.Sudija;
 @Repository
 public interface SudijaRepository extends JpaRepository<Sudija, Long> {
 
-	Sudija findByUtakmicaId(Long id);
+	Sudija findByUtakmiceId(Long id);
 }
