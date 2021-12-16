@@ -2,6 +2,9 @@ package com.ftninformatika.rent.model;
 
 import com.ftninformatika.rent.enumeration.KorisnickaUloga;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,8 +31,8 @@ public class Korisnik {
     @Enumerated(EnumType.STRING)
     private KorisnickaUloga uloga;
 
-    @ManyToOne
-    private Adresa adresa;
+    @OneToMany(mappedBy = "korisnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Komentar> kometari = new ArrayList<>();
 
     public Korisnik(){
 
@@ -43,8 +46,23 @@ public class Korisnik {
         this.lozinka = lozinka;
         this.uloga = uloga;
     }
+    
+    
 
-    public Long getId() {
+    public Korisnik(Long id, String korisnickoIme, String eMail, String ime, String prezime, String lozinka,
+			KorisnickaUloga uloga, List<Komentar> kometari) {
+		super();
+		this.id = id;
+		this.korisnickoIme = korisnickoIme;
+		this.eMail = eMail;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.lozinka = lozinka;
+		this.uloga = uloga;
+		this.kometari = kometari;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -100,18 +118,17 @@ public class Korisnik {
         this.uloga = uloga;
     }
 
-    public Adresa getAdresa() {
-        return adresa;
-    }
+    
 
-    public void setAdresa(Adresa adresa) {
-        this.adresa = adresa;
-        if (adresa != null && !adresa.getKorisnici().contains(this)) {
-           adresa.getKorisnici().add(this);
-        }
-    }
+    public List<Komentar> getKometari() {
+		return kometari;
+	}
 
-    @Override
+	public void setKometari(List<Komentar> kometari) {
+		this.kometari = kometari;
+	}
+
+	@Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

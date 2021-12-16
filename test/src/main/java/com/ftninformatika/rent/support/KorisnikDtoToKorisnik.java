@@ -1,8 +1,8 @@
 package com.ftninformatika.rent.support;
 
-import com.ftninformatika.rent.model.Adresa;
+
 import com.ftninformatika.rent.model.Korisnik;
-import com.ftninformatika.rent.service.AdresaService;
+
 import com.ftninformatika.rent.service.KorisnikService;
 import com.ftninformatika.rent.web.dto.KorisnikDTO;
 import org.springframework.core.convert.converter.Converter;
@@ -17,8 +17,6 @@ public class KorisnikDtoToKorisnik implements Converter<KorisnikDTO, Korisnik> {
     @Autowired
     private KorisnikService korisnikService;
 
-    @Autowired
-    private AdresaService adresaService;
 
     @Override
     public Korisnik convert(KorisnikDTO korisnikDTO) {
@@ -35,7 +33,6 @@ public class KorisnikDtoToKorisnik implements Converter<KorisnikDTO, Korisnik> {
 
         if(entity != null) {
             entity.setKorisnickoIme(korisnikDTO.getKorisnickoIme());
-            entity.setAdresa(adresaService.findOne(korisnikDTO.getAdresaDTO().getId()).get());
             entity.seteMail(korisnikDTO.geteMail());
             entity.setIme(korisnikDTO.getIme());
             entity.setPrezime(korisnikDTO.getPrezime());

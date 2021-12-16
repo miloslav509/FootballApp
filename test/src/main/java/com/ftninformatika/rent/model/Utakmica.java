@@ -53,6 +53,9 @@ public class Utakmica {
 	@OneToMany(mappedBy = "utakmica", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Gol> golovi = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "utakmica", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Komentar> komentari = new ArrayList<>();
+	
 	@ManyToOne
 	private Stadion stadion;
 	
@@ -127,6 +130,31 @@ public class Utakmica {
 	}
 
 	
+	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, int suteviDomacin,
+			int suteviGost, int suteviUGolDomacin, int suteviUGolGost, int posedDomacin, int posedGost,
+			List<Gol> golovi, List<Komentar> komentari, Stadion stadion, int goloviDomacin, int goloviGost,
+			Takmicenje takmicenje, int kolo, Sudija sudija) {
+		super();
+		this.id = id;
+		this.datumIVreme = datumIVreme;
+		this.klubDomacin = klubDomacin;
+		this.klubGost = klubGost;
+		this.suteviDomacin = suteviDomacin;
+		this.suteviGost = suteviGost;
+		this.suteviUGolDomacin = suteviUGolDomacin;
+		this.suteviUGolGost = suteviUGolGost;
+		this.posedDomacin = posedDomacin;
+		this.posedGost = posedGost;
+		this.golovi = golovi;
+		this.komentari = komentari;
+		this.stadion = stadion;
+		this.goloviDomacin = goloviDomacin;
+		this.goloviGost = goloviGost;
+		this.takmicenje = takmicenje;
+		this.kolo = kolo;
+		this.sudija = sudija;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(datumIVreme, golovi, goloviDomacin, goloviGost, id, klubDomacin, klubGost, kolo,
@@ -289,6 +317,15 @@ public class Utakmica {
 
 	public void setSudija(Sudija sudija) {
 		this.sudija = sudija;
+	}
+
+	
+	public List<Komentar> getKomentari() {
+		return komentari;
+	}
+
+	public void setKomentari(List<Komentar> komentari) {
+		this.komentari = komentari;
 	}
 
 	@Override

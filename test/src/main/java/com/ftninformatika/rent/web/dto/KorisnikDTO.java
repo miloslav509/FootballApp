@@ -3,7 +3,7 @@ package com.ftninformatika.rent.web.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
@@ -25,8 +25,6 @@ public class KorisnikDTO {
     @Size(min=3, max=50)
     private String prezime;
 
-    @NotNull(message = "Adresa nije zadata")
-    private AdresaDTO adresaDTO;
 
     public Long getId() {
         return id;
@@ -68,11 +66,4 @@ public class KorisnikDTO {
         this.prezime = prezime;
     }
 
-    public AdresaDTO getAdresaDTO() {
-        return adresaDTO;
-    }
-
-    public void setAdresaDTO(AdresaDTO adresaDTO) {
-        this.adresaDTO = adresaDTO;
-    }
 }

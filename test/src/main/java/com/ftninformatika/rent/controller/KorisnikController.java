@@ -75,9 +75,7 @@ public class KorisnikController {
         // KorisnikRegistracijaDTO nasleđuje KorisnikDTO, pa možemo koristiti konverter za njega
         // ostaje da dodatno konvertujemo polje kojeg u njemu nema - password
         Korisnik korisnik = toKorisnik.convert(dto);
-        if(korisnik.getAdresa() == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        
 
         // dodatak za zadatak 1
         String encodedPassword = passwordEncoder.encode(dto.getLozinka());
@@ -96,9 +94,7 @@ public class KorisnikController {
 
         Korisnik korisnik = toKorisnik.convert(korisnikDTO);
 
-        if(korisnik.getAdresa()  == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        
 
         return new ResponseEntity<>(toKorisnikDto.convert(korisnikService.save(korisnik)),HttpStatus.OK);
     }

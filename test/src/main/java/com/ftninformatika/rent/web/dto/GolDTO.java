@@ -20,6 +20,10 @@ public class GolDTO {
 	 
 	 private String asistentIme;
 	 
+	 private String asistentPrezime;
+	 
+	 private String strelacPrezime;
+	 
 	 private Long asistentId;
 
 	public Long getId() {
@@ -85,7 +89,23 @@ public class GolDTO {
 	public void setAsistentId(Long asistentId) {
 		this.asistentId = asistentId;
 	}
+
+	public String getAsistentPrezime() {
+		return asistentPrezime;
+	}
+
+	public void setAsistentPrezime(String asistentPrezime) {
+		this.asistentPrezime = asistentPrezime;
+	}
+
+	public String getStrelacPrezime() {
+		return strelacPrezime;
+	}
+
+	public void setStrelacPrezime(String strelacPrezime) {
+		this.strelacPrezime = strelacPrezime;
+	}
 	 
-	 
+	
 	 
 }

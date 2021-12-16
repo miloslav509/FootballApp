@@ -11,15 +11,12 @@ import java.util.List;
 @Component
 public class KorisnikToKorisnikDto implements Converter<Korisnik, KorisnikDTO>{
 
-    @Autowired
-    private AdresaToAdresaDto toAdresaDto;
 
     @Override
     public KorisnikDTO convert(Korisnik korisnik) {
         KorisnikDTO korisnikDTO = new KorisnikDTO();
 
         korisnikDTO.setId(korisnik.getId());
-        korisnikDTO.setAdresaDTO(toAdresaDto.convert(korisnik.getAdresa()));
         korisnikDTO.seteMail(korisnik.geteMail());
         korisnikDTO.setIme(korisnik.getIme());
         korisnikDTO.setPrezime(korisnik.getPrezime());
