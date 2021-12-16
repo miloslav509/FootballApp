@@ -11,7 +11,7 @@ import com.ftninformatika.rent.model.Tabela;
 import com.ftninformatika.rent.web.dto.TabelaDTO;
 
 @Component
-public class TabelaToTabelaDTO implements Converter<Tabela, TabelaDTO> {
+public class TabelaToTabelaDto implements Converter<Tabela, TabelaDTO> {
 
 	@Override
 	public TabelaDTO convert(Tabela tabela) {

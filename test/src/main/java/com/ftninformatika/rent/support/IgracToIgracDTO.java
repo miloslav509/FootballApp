@@ -11,10 +11,10 @@ import com.ftninformatika.rent.model.Igrac;
 import com.ftninformatika.rent.web.dto.IgracDTO;
 
 @Component
-public class IgracToIgracDTO implements Converter<Igrac, IgracDTO> {
+public class IgracToIgracDto implements Converter<Igrac, IgracDTO> {
 
 	@Autowired
-	private GolToGolDTO golToGolDTO;
+	private GolToGolDto golToGolDTO;
 	
 	@Override
 	public IgracDTO convert(Igrac igrac) {

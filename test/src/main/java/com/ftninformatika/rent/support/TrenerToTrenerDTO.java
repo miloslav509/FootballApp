@@ -10,7 +10,7 @@ import com.ftninformatika.rent.model.Trener;
 import com.ftninformatika.rent.web.dto.TrenerDTO;
 
 @Component
-public class TrenerToTrenerDTO implements Converter<Trener, TrenerDTO> {
+public class TrenerToTrenerDto implements Converter<Trener, TrenerDTO> {
 
 	@Override
 	public TrenerDTO convert(Trener trener) {

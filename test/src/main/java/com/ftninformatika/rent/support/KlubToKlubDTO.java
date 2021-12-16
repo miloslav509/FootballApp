@@ -11,10 +11,10 @@ import com.ftninformatika.rent.model.Klub;
 import com.ftninformatika.rent.web.dto.KlubDTO;
 
 @Component
-public class KlubToKlubDTO implements Converter<Klub, KlubDTO> {
+public class KlubToKlubDto implements Converter<Klub, KlubDTO> {
 
 	@Autowired
-	private IgracToIgracDTO igracToIgracDTO;
+	private IgracToIgracDto igracToIgracDTO;
 	
 	@Override
 	public KlubDTO convert(Klub klub) {

@@ -10,7 +10,7 @@ import com.ftninformatika.rent.model.Gol;
 import com.ftninformatika.rent.web.dto.GolDTO;
 
 @Component
-public class GolToGolDTO implements Converter<Gol, GolDTO> {
+public class GolToGolDto implements Converter<Gol, GolDTO> {
 
 	@Override
 	public GolDTO convert(Gol gol) {

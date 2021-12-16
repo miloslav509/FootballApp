@@ -10,7 +10,7 @@ import com.ftninformatika.rent.model.Stadion;
 import com.ftninformatika.rent.web.dto.StadionDTO;
 
 @Component
-public class StadionToStadionDTO implements Converter<Stadion, StadionDTO> {
+public class StadionToStadionDto implements Converter<Stadion, StadionDTO> {
 
 	@Override
 	public StadionDTO convert(Stadion stadion) {

@@ -10,7 +10,7 @@ import com.ftninformatika.rent.model.Komentar;
 import com.ftninformatika.rent.web.dto.KomentarDTO;
 
 @Component
-public class KomentarToKomentarDTO implements Converter<Komentar, KomentarDTO> {
+public class KomentarToKomentarDto implements Converter<Komentar, KomentarDTO> {
 
 	@Override
 	public KomentarDTO convert(Komentar komentar) {
