@@ -112,5 +112,87 @@ INSERT INTO trener (id, ime, prezime)
 INSERT INTO tarmicenje (id, naziv_takmicenja, organizator, godina)
               VALUES (1,'Premier League', 'Barclays', '2021/2022');
               
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (1,'Arsenal', 1,1,1);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (2,'Aston Villa', 2,2,2);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (3,'Brentford', 3,3,3);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (4,'Brighton', 4,4,4);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (5,'Burnley', 5,5,5);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (6,'Chelsea', 6,6,6);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (7,'Crystal Palace', 7,7,7);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (8,'Everton', 8,8,8);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (9,'Leeds United', 9,9,9);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (10,'Leicester City', 10,10,10);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (11,'Liverpool', 11,11,11);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (12,'Mancester City', 12,12,12);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (13,'Manchester United', 12,12,12);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (14,'Newcastle United', 14,14,14);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (15,'Norwich City', 15,15,15);
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (16,'Southampton', 16,16,16);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (17,'Tottenham Hotspur', 17,17,17);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (18,'Watford', 18,18,18);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (19,'West Han United', 19,19,19);                   
+INSERT INTO stadion (id, naziv, stadion_id, trener_id, tabela_id)
+              VALUES (20,'Wolverhampton Wanderers', 20,20,20);                                 
+              
+              
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (1, '2021-08-13 21:00', 3, 1, 8, 22, 3, 4, 35, 65, 3, 2, 0, 1, 1, 1);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (2, '2021-08-14 13:30', 13, 9, 16, 10, 8, 3, 49, 51, 13, 5, 1, 1, 1, 2);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (3, '2021-08-14 16:00', 5, 4, 14, 14, 3, 8, 36, 64, 5, 1, 2, 1, 1, 3);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (4, '2021-08-14 16:00', 6, 7, 13, 4, 6, 1, 62, 38, 6, 3, 0, 1, 1, 4);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (5, '2021-08-14 16:00', 8, 16, 14, 6, 6, 3, 48, 52, 8, 3, 1, 1, 1, 5);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (6, '2021-08-14 16:00', 10, 20, 9, 17, 5, 3, 56, 44, 10, 1, 0, 1, 1, 6);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (7, '2021-08-14 16:00', 18, 2, 13, 11, 7, 2, 38, 62, 18, 3, 2, 1, 1, 7);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (8, '2021-08-14 18:30', 15, 11, 14, 19, 3, 8, 50, 50, 15, 0, 3, 1, 1, 8);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (9, '2021-08-15 15:00', 14, 19, 17, 18, 3, 9, 46, 54, 14, 2, 4, 1, 1, 9);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, sutevi_u_gol_domacin, 
+						sutevi_u_gol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id)
+              VALUES (10, '2021-08-15 17:30', 17, 12, 13, 18, 3, 4, 34, 66, 17, 1, 0, 1, 1, 10);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
+              VALUES (11, '2021-08-21 18:30', 4, 18, 4, 1, 2, 1);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
+              VALUES (12, '2021-08-21 16:00', 12, 15, 12, 1, 2, 2);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
+              VALUES (13, '2021-08-21 16:00', 9, 8, 9, 1, 2, 3);
+INSERT INTO utakmica (datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
+              VALUES (14, '2021-08-21 16:00', 7, 3, 7, 1, 2, 4);   
+              
+
               
            

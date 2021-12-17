@@ -24,7 +24,8 @@ public class TabelaToTabelaDto implements Converter<Tabela, TabelaDTO> {
 		dto.setNereseneUtakmice(tabela.getNereseneUtakmice());
 		dto.setPobede(tabela.getPobede());
 		dto.setPorazi(tabela.getPorazi());
-		dto.setTakmicenjeNaziv(tabela.getTakmicenje().getNazivTakmicenja());
+		dto.setPrimljeniGolovi(tabela.getPrimljeniGolovi());
+		dto.setPostignutiGolovi(tabela.getPostignutiGolovi());
 		
 		return dto;
 	}

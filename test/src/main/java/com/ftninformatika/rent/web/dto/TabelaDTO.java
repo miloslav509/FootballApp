@@ -11,7 +11,9 @@ public class TabelaDTO {
 	 
 	 private Long klubId;
 	 
-	 private String takmicenjeNaziv;
+	 private int postignutiGolovi;
+	 
+	 private int primljeniGolovi;
 	 
 	 private int bodovi;
 	 
@@ -45,12 +47,21 @@ public class TabelaDTO {
 		this.klubId = klubId;
 	}
 
-	public String getTakmicenjeNaziv() {
-		return takmicenjeNaziv;
+
+	public int getPostignutiGolovi() {
+		return postignutiGolovi;
 	}
 
-	public void setTakmicenjeNaziv(String takmicenjeNaziv) {
-		this.takmicenjeNaziv = takmicenjeNaziv;
+	public void setPostignutiGolovi(int postignutiGolovi) {
+		this.postignutiGolovi = postignutiGolovi;
+	}
+
+	public int getPrimljeniGolovi() {
+		return primljeniGolovi;
+	}
+
+	public void setPrimljeniGolovi(int primljeniGolovi) {
+		this.primljeniGolovi = primljeniGolovi;
 	}
 
 	public int getBodovi() {

@@ -29,7 +29,10 @@ public class Tabela {
 	private int bodovi;
 	
 	@Column
-	private int pozicija;
+	private int postignutiGolovi;
+	
+	@Column
+	private int primljeniGolovi;
 	
 	@Column
 	private int pobede;
@@ -40,90 +43,11 @@ public class Tabela {
 	@Column
 	private int nereseneUtakmice;
 	
-	@Column
-	private boolean prolaz = false;
-	
-	@Column
-	private boolean ispadanje = false;
 
 	public Tabela() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
-
-	
-
-	public Tabela(Long id, Klub klub, int bodovi, int pozicija, boolean prolaz, boolean ispadanje) {
-		super();
-		this.id = id;
-		this.klub = klub;
-		this.bodovi = bodovi;
-		this.pozicija = pozicija;
-		this.prolaz = prolaz;
-		this.ispadanje = ispadanje;
-	}
-	
-	
-
-	
-
-
-
-
-	public Tabela(Long id, Klub klub, int bodovi, int pozicija, int pobede, int porazi,
-			int nereseneUtakmice, boolean prolaz, boolean ispadanje) {
-		super();
-		this.id = id;
-		this.klub = klub;
-		this.bodovi = bodovi;
-		this.pozicija = pozicija;
-		this.pobede = pobede;
-		this.porazi = porazi;
-		this.nereseneUtakmice = nereseneUtakmice;
-		this.prolaz = prolaz;
-		this.ispadanje = ispadanje;
-	}
-
-
-
-
-
-	
-
-
-
-
-
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(bodovi, id, ispadanje, klub, nereseneUtakmice, pobede, porazi, pozicija, prolaz);
-	}
-
-
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Tabela other = (Tabela) obj;
-		return bodovi == other.bodovi && Objects.equals(id, other.id) && ispadanje == other.ispadanje
-				&& Objects.equals(klub, other.klub) && nereseneUtakmice == other.nereseneUtakmice
-				&& pobede == other.pobede && porazi == other.porazi && pozicija == other.pozicija
-				&& prolaz == other.prolaz;
-	}
-
-
-
 
 
 	public Long getId() {
@@ -152,29 +76,7 @@ public class Tabela {
 		this.bodovi = bodovi;
 	}
 
-	public int getPozicija() {
-		return pozicija;
-	}
-
-	public void setPozicija(int pozicija) {
-		this.pozicija = pozicija;
-	}
-
-	public boolean isProlaz() {
-		return prolaz;
-	}
-
-	public void setProlaz(boolean prolaz) {
-		this.prolaz = prolaz;
-	}
-
-	public boolean isIspadanje() {
-		return ispadanje;
-	}
-
-	public void setIspadanje(boolean ispadanje) {
-		this.ispadanje = ispadanje;
-	}
+	
 
 	
 
@@ -226,15 +128,56 @@ public class Tabela {
 	}
 
 
+	public int getPostignutiGolovi() {
+		return postignutiGolovi;
+	}
 
+
+	public void setPostignutiGolovi(int postignutiGolovi) {
+		this.postignutiGolovi = postignutiGolovi;
+	}
+
+
+	public int getPrimljeniGolovi() {
+		return primljeniGolovi;
+	}
+
+
+	public void setPrimljeniGolovi(int primljeniGolovi) {
+		this.primljeniGolovi = primljeniGolovi;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(bodovi, id, klub, nereseneUtakmice, pobede, porazi, postignutiGolovi, primljeniGolovi);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tabela other = (Tabela) obj;
+		return bodovi == other.bodovi && Objects.equals(id, other.id) && Objects.equals(klub, other.klub)
+				&& nereseneUtakmice == other.nereseneUtakmice && pobede == other.pobede && porazi == other.porazi
+				&& postignutiGolovi == other.postignutiGolovi && primljeniGolovi == other.primljeniGolovi;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Tabela [id=" + id + ", klub=" + klub +  ", bodovi=" + bodovi
-				+ ", pozicija=" + pozicija + ", pobede=" + pobede + ", porazi=" + porazi + ", nereseneUtakmice="
-				+ nereseneUtakmice + ", prolaz=" + prolaz + ", ispadanje=" + ispadanje + "]";
+		return "Tabela [id=" + id + ", klub=" + klub + ", bodovi=" + bodovi + ", postignutiGolovi=" + postignutiGolovi
+				+ ", primljeniGolovi=" + primljeniGolovi + ", pobede=" + pobede + ", porazi=" + porazi
+				+ ", nereseneUtakmice=" + nereseneUtakmice + "]";
 	}
+
+
+
 
 
 
