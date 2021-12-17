@@ -25,10 +25,6 @@ public class Tabela {
 	@OneToOne
 	private Klub klub;
 	
-	
-	@OneToOne
-	private Takmicenje takmicenje;
-	
 	@Column
 	private int bodovi;
 	
@@ -76,12 +72,11 @@ public class Tabela {
 
 
 
-	public Tabela(Long id, Klub klub, Takmicenje takmicenje, int bodovi, int pozicija, int pobede, int porazi,
+	public Tabela(Long id, Klub klub, int bodovi, int pozicija, int pobede, int porazi,
 			int nereseneUtakmice, boolean prolaz, boolean ispadanje) {
 		super();
 		this.id = id;
 		this.klub = klub;
-		this.takmicenje = takmicenje;
 		this.bodovi = bodovi;
 		this.pozicija = pozicija;
 		this.pobede = pobede;
@@ -99,10 +94,13 @@ public class Tabela {
 
 
 
+
+
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(bodovi, id, ispadanje, klub, nereseneUtakmice, pobede, porazi, pozicija, prolaz,
-				takmicenje);
+		return Objects.hash(bodovi, id, ispadanje, klub, nereseneUtakmice, pobede, porazi, pozicija, prolaz);
 	}
 
 
@@ -121,7 +119,7 @@ public class Tabela {
 		return bodovi == other.bodovi && Objects.equals(id, other.id) && ispadanje == other.ispadanje
 				&& Objects.equals(klub, other.klub) && nereseneUtakmice == other.nereseneUtakmice
 				&& pobede == other.pobede && porazi == other.porazi && pozicija == other.pozicija
-				&& prolaz == other.prolaz && Objects.equals(takmicenje, other.takmicenje);
+				&& prolaz == other.prolaz;
 	}
 
 
@@ -179,18 +177,6 @@ public class Tabela {
 	}
 
 	
-	public Takmicenje getTakmicenje() {
-		return takmicenje;
-	}
-
-
-
-
-
-	public void setTakmicenje(Takmicenje takmicenje) {
-		this.takmicenje = takmicenje;
-	}
-
 
 
 
@@ -245,7 +231,7 @@ public class Tabela {
 
 	@Override
 	public String toString() {
-		return "Tabela [id=" + id + ", klub=" + klub + ", takmicenje=" + takmicenje + ", bodovi=" + bodovi
+		return "Tabela [id=" + id + ", klub=" + klub +  ", bodovi=" + bodovi
 				+ ", pozicija=" + pozicija + ", pobede=" + pobede + ", porazi=" + porazi + ", nereseneUtakmice="
 				+ nereseneUtakmice + ", prolaz=" + prolaz + ", ispadanje=" + ispadanje + "]";
 	}

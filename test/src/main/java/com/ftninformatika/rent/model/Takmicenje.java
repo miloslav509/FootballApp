@@ -2,6 +2,7 @@ package com.ftninformatika.rent.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,10 +28,8 @@ public class Takmicenje {
 	private String organizator;
 	
 	@Column
-	private int godina;
+	private String godina;
 	
-	@ManyToOne
-	private Tabela tabela;
 	
 	@OneToMany(mappedBy = "takmicenje", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Utakmica> utakmice = new ArrayList<>();
@@ -40,7 +39,7 @@ public class Takmicenje {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Takmicenje(Long id, String nazivTakmicenja, String organizator, int godina) {
+	public Takmicenje(Long id, String nazivTakmicenja, String organizator, String godina) {
 		super();
 		this.id = id;
 		this.nazivTakmicenja = nazivTakmicenja;
@@ -48,27 +47,17 @@ public class Takmicenje {
 		this.godina = godina;
 	}
 	
-	
 
-	public Takmicenje(Long id, String nazivTakmicenja, String organizator, int godina, Tabela tabela) {
-		super();
-		this.id = id;
-		this.nazivTakmicenja = nazivTakmicenja;
-		this.organizator = organizator;
-		this.godina = godina;
-		this.tabela = tabela;
-	}
 	
 	
 
-	public Takmicenje(Long id, String nazivTakmicenja, String organizator, int godina, Tabela tabela,
+	public Takmicenje(Long id, String nazivTakmicenja, String organizator, String godina,
 			List<Utakmica> utakmice) {
 		super();
 		this.id = id;
 		this.nazivTakmicenja = nazivTakmicenja;
 		this.organizator = organizator;
 		this.godina = godina;
-		this.tabela = tabela;
 		this.utakmice = utakmice;
 	}
 
@@ -96,21 +85,16 @@ public class Takmicenje {
 		this.organizator = organizator;
 	}
 
-	public int getGodina() {
+	
+
+	public String getGodina() {
 		return godina;
 	}
 
-	public void setGodina(int godina) {
+	public void setGodina(String godina) {
 		this.godina = godina;
 	}
 
-	public Tabela getTabela() {
-		return tabela;
-	}
-
-	public void setTabela(Tabela tabela) {
-		this.tabela = tabela;
-	}
 	
 	
 
@@ -121,11 +105,34 @@ public class Takmicenje {
 	public void setUtakmice(List<Utakmica> utakmice) {
 		this.utakmice = utakmice;
 	}
+	
+	
+
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(godina, id, nazivTakmicenja, organizator, utakmice);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Takmicenje other = (Takmicenje) obj;
+		return Objects.equals(godina, other.godina) && Objects.equals(id, other.id)
+				&& Objects.equals(nazivTakmicenja, other.nazivTakmicenja)
+				&& Objects.equals(organizator, other.organizator) && Objects.equals(utakmice, other.utakmice);
+	}
 
 	@Override
 	public String toString() {
 		return "Takmicenje [id=" + id + ", nazivTakmicenja=" + nazivTakmicenja + ", organizator=" + organizator
-				+ ", godina=" + godina + ", tabela=" + tabela + ", utakmice=" + utakmice + "]";
+				+ ", godina=" + godina +  ", utakmice=" + utakmice + "]";
 	}
 
 

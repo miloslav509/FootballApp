@@ -22,9 +22,6 @@ public class Sudija {
     private Long id;
 	
 	@Column
-	private int jmbg;
-	
-	@Column
 	private String ime;
 	
 	@Column
@@ -38,40 +35,23 @@ public class Sudija {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sudija(Long id, int jmbg, String ime, String prezime) {
+	public Sudija(Long id, String ime, String prezime) {
 		super();
 		this.id = id;
-		this.jmbg = jmbg;
+		
 		this.ime = ime;
 		this.prezime = prezime;
 	}
 
-	public Sudija(Long id, int jmbg, String ime, String prezime, List<Utakmica> utakmice) {
+	public Sudija(Long id, String ime, String prezime, List<Utakmica> utakmice) {
 		super();
 		this.id = id;
-		this.jmbg = jmbg;
+		
 		this.ime = ime;
 		this.prezime = prezime;
 		this.utakmice = utakmice;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, ime, jmbg, prezime, utakmice);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Sudija other = (Sudija) obj;
-		return Objects.equals(id, other.id) && Objects.equals(ime, other.ime) && jmbg == other.jmbg
-				&& Objects.equals(prezime, other.prezime) && Objects.equals(utakmice, other.utakmice);
-	}
 
 	public Long getId() {
 		return id;
@@ -79,14 +59,6 @@ public class Sudija {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public int getJmbg() {
-		return jmbg;
-	}
-
-	public void setJmbg(int jmbg) {
-		this.jmbg = jmbg;
 	}
 
 	public String getIme() {
@@ -114,10 +86,29 @@ public class Sudija {
 	}
 
 	@Override
-	public String toString() {
-		return "Sudija [id=" + id + ", jmbg=" + jmbg + ", ime=" + ime + ", prezime=" + prezime + ", utakmice="
-				+ utakmice + "]";
+	public int hashCode() {
+		return Objects.hash(id, ime, prezime, utakmice);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sudija other = (Sudija) obj;
+		return Objects.equals(id, other.id) && Objects.equals(ime, other.ime) && Objects.equals(prezime, other.prezime)
+				&& Objects.equals(utakmice, other.utakmice);
+	}
+
+	@Override
+	public String toString() {
+		return "Sudija [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", utakmice=" + utakmice + "]";
+	}
+	
+	
 	
 	
 	

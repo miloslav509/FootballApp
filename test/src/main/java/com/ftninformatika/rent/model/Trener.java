@@ -17,9 +17,6 @@ public class Trener {
     private Long id;
 	
 	@Column
-	private int jmbg;
-	
-	@Column
 	private String ime;
 	
 	@Column
@@ -33,19 +30,18 @@ public class Trener {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Trener(Long id, int jmbg, String ime, String prezime) {
+	public Trener(Long id, String ime, String prezime) {
 		super();
 		this.id = id;
-		this.jmbg = jmbg;
 		this.ime = ime;
 		this.prezime = prezime;
 	}
 	
 
-	public Trener(Long id, int jmbg, String ime, String prezime, Klub klub) {
+	public Trener(Long id, String ime, String prezime, Klub klub) {
 		super();
 		this.id = id;
-		this.jmbg = jmbg;
+		
 		this.ime = ime;
 		this.prezime = prezime;
 		this.klub = klub;
@@ -69,13 +65,6 @@ public class Trener {
 		this.id = id;
 	}
 
-	public int getJmbg() {
-		return jmbg;
-	}
-
-	public void setJmbg(int jmbg) {
-		this.jmbg = jmbg;
-	}
 
 	public String getIme() {
 		return ime;
@@ -95,7 +84,7 @@ public class Trener {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, ime, jmbg, klub, prezime);
+		return Objects.hash(id, ime, klub, prezime);
 	}
 
 	@Override
@@ -107,14 +96,16 @@ public class Trener {
 		if (getClass() != obj.getClass())
 			return false;
 		Trener other = (Trener) obj;
-		return Objects.equals(id, other.id) && Objects.equals(ime, other.ime) && jmbg == other.jmbg
-				&& Objects.equals(klub, other.klub) && Objects.equals(prezime, other.prezime);
+		return Objects.equals(id, other.id) && Objects.equals(ime, other.ime) && Objects.equals(klub, other.klub)
+				&& Objects.equals(prezime, other.prezime);
 	}
 
 	@Override
 	public String toString() {
-		return "Trener [id=" + id + ", jmbg=" + jmbg + ", ime=" + ime + ", prezime=" + prezime + ", klub=" + klub + "]";
+		return "Trener [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", klub=" + klub + "]";
 	}
+
+	
 	
 	
 	
