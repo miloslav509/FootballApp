@@ -154,6 +154,20 @@ public class Utakmica {
 		this.kolo = kolo;
 		this.sudija = sudija;
 	}
+	
+	
+
+	public Utakmica(LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, Stadion stadion, Takmicenje takmicenje,
+			int kolo, Sudija sudija) {
+		super();
+		this.datumIVreme = datumIVreme;
+		this.klubDomacin = klubDomacin;
+		this.klubGost = klubGost;
+		this.stadion = stadion;
+		this.takmicenje = takmicenje;
+		this.kolo = kolo;
+		this.sudija = sudija;
+	}
 
 	@Override
 	public int hashCode() {
