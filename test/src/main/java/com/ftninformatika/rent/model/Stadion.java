@@ -38,7 +38,7 @@ public class Stadion {
 	@Column
 	private String grad;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "stadion")
 	private Klub klub;
 
 	public Stadion() {

@@ -22,7 +22,7 @@ public class Trener {
 	@Column
 	private String prezime;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "trener")
 	private Klub klub;
 
 	public Trener() {

@@ -43,7 +43,7 @@ public class Klub {
 	@OneToOne
 	private Trener trener;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "klub")
 	private Tabela tabela;
 	
 	
