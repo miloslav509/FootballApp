@@ -192,7 +192,45 @@ INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, stadion_id
               VALUES (13, '2021-08-21 16:00', 9, 8, 9, 1, 2, 3);
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
               VALUES (14, '2021-08-21 16:00', 7, 3, 7, 1, 2, 4);   
-              
-
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (1, 12, 1, 1, 0, 0, 5, 1, 4, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (2, 6, 1, 1, 0, 0, 3, 0, 3, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (3, 11, 1, 1, 0, 0, 3, 0, 3, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (4, 8, 1, 1, 0, 0, 3, 1, 2, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (5, 12, 1, 1, 0, 0, 4, 2, 2, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (6, 3, 1, 1, 0, 0, 2, 0, 2, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (7, 18, 1, 1, 0, 0, 3, 2, 1, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (8, 4, 1, 1, 0, 0, 2, 1, 1, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (9, 10, 1, 1, 0, 0, 1, 0, 1, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (10, 17, 1, 1, 0, 0, 1, 0, 1, 3);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (11, 2, 1, 0, 0, 1, 2, 3, -1, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (12, 5, 1, 0, 0, 1, 1, 2, -1, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (13, 12, 1, 0, 0, 1, 0, 1, -1, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (14, 20, 1, 0, 0, 1, 0, 1, -1, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (15, 14, 1, 0, 0, 1, 2, 4, -2, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (16, 16, 1, 0, 0, 1, 1, 3, -2, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (17, 1, 1, 0, 0, 1, 0, 2, -2, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (18, 7, 1, 0, 0, 1, 0, 3, -3, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (19, 15, 1, 0, 0, 1, 0, 3, -3, 0);
+INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
+              VALUES (20, 9, 1, 0, 0, 1, 1, 5, -4, 0);              
               
            

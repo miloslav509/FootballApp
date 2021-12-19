@@ -22,6 +22,8 @@ public class TabelaDTO {
 	 private int porazi;
 	 
 	 private int nereseneUtakmice;
+	 
+	 private int golRazlika;
 
 	public Long getId() {
 		return id;
@@ -94,6 +96,14 @@ public class TabelaDTO {
 
 	public void setNereseneUtakmice(int nereseneUtakmice) {
 		this.nereseneUtakmice = nereseneUtakmice;
+	}
+
+	public int getGolRazlika() {
+		return golRazlika;
+	}
+
+	public void setGolRazlika(int golRazlika) {
+		this.golRazlika = golRazlika;
 	}
 	 
 	 

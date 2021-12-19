@@ -35,6 +35,9 @@ public class Tabela {
 	private int primljeniGolovi;
 	
 	@Column
+	private int golRazlika;
+	
+	@Column
 	private int pobede;
 	
 	@Column
@@ -43,10 +46,64 @@ public class Tabela {
 	@Column
 	private int nereseneUtakmice;
 	
+	@Column
+	private int odigraniMecevi;
+	
+	
+	public Tabela(Long id, Klub klub, int bodovi, int postignutiGolovi, int primljeniGolovi, int golRazlika, int pobede,
+			int porazi, int nereseneUtakmice) {
+		super();
+		this.id = id;
+		this.klub = klub;
+		this.bodovi = bodovi;
+		this.postignutiGolovi = postignutiGolovi;
+		this.primljeniGolovi = primljeniGolovi;
+		this.golRazlika = golRazlika;
+		this.pobede = pobede;
+		this.porazi = porazi;
+		this.nereseneUtakmice = nereseneUtakmice;
+	}
+
+	
+
+
+	public Tabela(Klub klub, int bodovi, int postignutiGolovi, int primljeniGolovi, int golRazlika, int pobede,
+			int porazi, int nereseneUtakmice, int odigraniMecevi) {
+		super();
+		this.klub = klub;
+		this.bodovi = bodovi;
+		this.postignutiGolovi = postignutiGolovi;
+		this.primljeniGolovi = primljeniGolovi;
+		this.golRazlika = golRazlika;
+		this.pobede = pobede;
+		this.porazi = porazi;
+		this.nereseneUtakmice = nereseneUtakmice;
+		this.odigraniMecevi = odigraniMecevi;
+	}
+
+
+
 
 	public Tabela() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	public Tabela(Long id, Klub klub, int bodovi, int postignutiGolovi, int primljeniGolovi, int golRazlika, int pobede,
+			int porazi, int nereseneUtakmice, int odigraniMecevi) {
+		super();
+		this.id = id;
+		this.klub = klub;
+		this.bodovi = bodovi;
+		this.postignutiGolovi = postignutiGolovi;
+		this.primljeniGolovi = primljeniGolovi;
+		this.golRazlika = golRazlika;
+		this.pobede = pobede;
+		this.porazi = porazi;
+		this.nereseneUtakmice = nereseneUtakmice;
+		this.odigraniMecevi = odigraniMecevi;
 	}
 
 
@@ -148,9 +205,39 @@ public class Tabela {
 	}
 
 
+	
+
+
+	public int getGolRazlika() {
+		return golRazlika;
+	}
+
+
+	public void setGolRazlika(int golRazlika) {
+		this.golRazlika = golRazlika;
+	}
+
+	
+	
+
+	public int getOdigraniMecevi() {
+		return odigraniMecevi;
+	}
+
+
+
+
+	public void setOdigraniMecevi(int odigraniMecevi) {
+		this.odigraniMecevi = odigraniMecevi;
+	}
+
+
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(bodovi, id, klub, nereseneUtakmice, pobede, porazi, postignutiGolovi, primljeniGolovi);
+		return Objects.hash(bodovi, golRazlika, id, klub, nereseneUtakmice, pobede, porazi, postignutiGolovi,
+				primljeniGolovi);
 	}
 
 
@@ -163,18 +250,22 @@ public class Tabela {
 		if (getClass() != obj.getClass())
 			return false;
 		Tabela other = (Tabela) obj;
-		return bodovi == other.bodovi && Objects.equals(id, other.id) && Objects.equals(klub, other.klub)
-				&& nereseneUtakmice == other.nereseneUtakmice && pobede == other.pobede && porazi == other.porazi
-				&& postignutiGolovi == other.postignutiGolovi && primljeniGolovi == other.primljeniGolovi;
+		return bodovi == other.bodovi && golRazlika == other.golRazlika && Objects.equals(id, other.id)
+				&& Objects.equals(klub, other.klub) && nereseneUtakmice == other.nereseneUtakmice
+				&& pobede == other.pobede && porazi == other.porazi && postignutiGolovi == other.postignutiGolovi
+				&& primljeniGolovi == other.primljeniGolovi;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Tabela [id=" + id + ", klub=" + klub + ", bodovi=" + bodovi + ", postignutiGolovi=" + postignutiGolovi
-				+ ", primljeniGolovi=" + primljeniGolovi + ", pobede=" + pobede + ", porazi=" + porazi
-				+ ", nereseneUtakmice=" + nereseneUtakmice + "]";
+				+ ", primljeniGolovi=" + primljeniGolovi + ", golRazlika=" + golRazlika + ", pobede=" + pobede
+				+ ", porazi=" + porazi + ", nereseneUtakmice=" + nereseneUtakmice + "]";
 	}
+
+
+	
 
 
 
