@@ -20,6 +20,8 @@ public class IgracDTO {
 	 
 	 private Long klubId;
 	 
+	 private int broj;
+	 
 	 private List<GolDTO> asistencije = new ArrayList<>();
 	 
 	 private List<GolDTO> golovi = new ArrayList<>();
@@ -87,6 +89,15 @@ public class IgracDTO {
 	public void setGolovi(List<GolDTO> golovi) {
 		this.golovi = golovi;
 	}
+
+	public int getBroj() {
+		return broj;
+	}
+
+	public void setBroj(int broj) {
+		this.broj = broj;
+	}
 	 
+	
 	 
 }

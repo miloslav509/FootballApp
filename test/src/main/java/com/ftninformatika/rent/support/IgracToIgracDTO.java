@@ -28,6 +28,7 @@ public class IgracToIgracDto implements Converter<Igrac, IgracDTO> {
 		dto.setPozicija(igrac.getPozicija());
 		dto.setKlubNaziv(igrac.getKlub().getNaziv());
 		dto.setKlubId(igrac.getKlub().getId());
+		dto.setBroj(igrac.getBroj());
 		
 		return dto;
 	}

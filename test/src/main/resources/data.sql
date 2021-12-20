@@ -192,6 +192,8 @@ INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, stadion_id
               VALUES (13, '2021-08-21 16:00', 9, 8, 9, 1, 2, 3);
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, stadion_id, takmicenje_id, kolo, sudija_id)
               VALUES (14, '2021-08-21 16:00', 7, 3, 7, 1, 2, 4);   
+
+    
 INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
               VALUES (1, 12, 1, 1, 0, 0, 5, 1, 4, 3);
 INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
@@ -233,4 +235,53 @@ INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, por
 INSERT INTO tabela (id, klub_id, odigrani_mecevi, pobede, neresene_utakmice, porazi, postignuti_golovi, primljeni_golovi, gol_razlika, bodovi)
               VALUES (20, 9, 1, 0, 0, 1, 1, 5, -4, 0);              
               
-           
+
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (1, 'David', 'Raya', 'GK', 1, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (2, 'Kristoffer', 'Ajer', 'DEF', 20, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (3, 'Ethan', 'Pinnock', 'DEF', 5, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (4, 'Pontus', 'Jansson', 'DEF', 18, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (5, 'Frank', 'Onyeka', 'MID', 15, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (6, 'Rico', 'Henry', 'MID', 3, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (7, 'Christian', 'Norgaard', 'MID', 6, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (8, 'Sergi', 'Canos', 'MID', 7, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (9, 'Vitaly', 'Janelt', 'MID', 27, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (10, 'Ivan', 'Toney', 'ST', 17, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (11, 'Bryan', 'Mbeumo', 'ST', 19, 3);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (12, 'Bernd', 'Leno', 'GK', 1, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (13, 'Kieran', 'Tierney', 'DEF', 3, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (14, 'Benjamin', 'White', 'DEF', 4, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (15, 'Calum', 'Chambers', 'DEF', 21, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (16, 'Pablo', 'Mari', 'DEF', 22, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (17, 'Emile', 'Smith', 'MID', 10, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (18, 'Nicolas', 'Pepe', 'MID', 19, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (19, 'Albert', 'Lokonga', 'MID', 23, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (20, 'Granit', 'Xhaka', 'MID', 34, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (21, 'Gabriel', 'Martinelli', 'MID', 35, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (22, 'Folarin', 'Balogun', 'ST', 26, 1);       
+              
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (1, 8, 3, 1, 22);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (2, 7, null, 1, 73);              

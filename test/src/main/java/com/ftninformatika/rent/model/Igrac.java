@@ -30,6 +30,9 @@ public class Igrac {
 	@Column
 	private String pozicija;
 	
+	@Column
+	private int broj;
+	
 	@ManyToOne
 	private Klub klub;
 	
@@ -63,10 +66,39 @@ public class Igrac {
 		this.golovi = golovi;
 		this.asistencije = asistencije;
 	}
+	
+	
+
+	public Igrac(String ime, String prezime, String pozicija, int broj, Klub klub, List<Gol> golovi,
+			List<Gol> asistencije) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.pozicija = pozicija;
+		this.broj = broj;
+		this.klub = klub;
+		this.golovi = golovi;
+		this.asistencije = asistencije;
+	}
+
+	public Igrac(Long id, String ime, String prezime, String pozicija, int broj, Klub klub, List<Gol> golovi,
+			List<Gol> asistencije) {
+		super();
+		this.id = id;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.pozicija = pozicija;
+		this.broj = broj;
+		this.klub = klub;
+		this.golovi = golovi;
+		this.asistencije = asistencije;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(asistencije, golovi, id, ime, klub, pozicija, prezime);
+		return Objects.hash(asistencije, broj, golovi, id, ime, klub, pozicija, prezime);
 	}
 
 	@Override
@@ -78,11 +110,12 @@ public class Igrac {
 		if (getClass() != obj.getClass())
 			return false;
 		Igrac other = (Igrac) obj;
-		return Objects.equals(asistencije, other.asistencije) && Objects.equals(golovi, other.golovi)
-				&& Objects.equals(id, other.id) && Objects.equals(ime, other.ime) && Objects.equals(klub, other.klub)
+		return Objects.equals(asistencije, other.asistencije) && broj == other.broj
+				&& Objects.equals(golovi, other.golovi) && Objects.equals(id, other.id)
+				&& Objects.equals(ime, other.ime) && Objects.equals(klub, other.klub)
 				&& Objects.equals(pozicija, other.pozicija) && Objects.equals(prezime, other.prezime);
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -139,11 +172,23 @@ public class Igrac {
 		this.asistencije = asistencije;
 	}
 
+	public int getBroj() {
+		return broj;
+	}
+
+	public void setBroj(int broj) {
+		this.broj = broj;
+	}
+
 	@Override
 	public String toString() {
-		return "Igrac [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", pozicija=" + pozicija + ", klub=" + klub
-				+ ", golovi=" + golovi + ", asistencije=" + asistencije + "]";
+		return "Igrac [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", pozicija=" + pozicija + ", broj=" + broj
+				+ ", klub=" + klub + ", golovi=" + golovi + ", asistencije=" + asistencije + "]";
 	}
+
+	
+
+	
 	
 	
 	
