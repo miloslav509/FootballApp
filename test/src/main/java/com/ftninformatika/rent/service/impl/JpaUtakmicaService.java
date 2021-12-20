@@ -3,6 +3,8 @@ package com.ftninformatika.rent.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.ftninformatika.rent.model.Utakmica;
@@ -22,9 +24,9 @@ public class JpaUtakmicaService implements UtakmicaService {
 	}
 
 	@Override
-	public List<Utakmica> findAll() {
+	public Page<Utakmica> findAll(int pageNo) {
 		
-		return utakmicaRepository.findAll();
+		return utakmicaRepository.getAllPage(PageRequest.of(pageNo, 5));
 	}
 
 	@Override

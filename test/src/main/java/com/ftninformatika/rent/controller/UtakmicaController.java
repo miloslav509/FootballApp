@@ -3,6 +3,8 @@ package com.ftninformatika.rent.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +36,13 @@ public class UtakmicaController {
 	private UtakmicaDtoToUtakmica utakmicaDtoToUtakmica;
 	
 	@GetMapping
-    public ResponseEntity<List<UtakmicaDTO>> getAll() {
+    public ResponseEntity<List<UtakmicaDTO>> index(@RequestParam(value = "pageNo", defaultValue = "0") int pageNo) {
 
-        List<Utakmica> utakmice = utakmicaService.findAll();
+        Page<Utakmica> page = utakmicaService.findAll(pageNo);
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Total-Pages", Integer.toString(page.getTotalPages()));
 
-        return new ResponseEntity<>(utakmicaToUtakmicaDto.convert(utakmice), HttpStatus.OK);
+        return new ResponseEntity<>(utakmicaToUtakmicaDto.convert(page.getContent()),headers, HttpStatus.OK);
     }
 }

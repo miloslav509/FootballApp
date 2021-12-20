@@ -2,13 +2,15 @@ package com.ftninformatika.rent.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.ftninformatika.rent.model.Utakmica;
 
 public interface UtakmicaService {
 
 	Utakmica findOne(Long id);
 	
-	List<Utakmica> findAll();
+	Page<Utakmica> findAll(int page);
 	
 	List<Utakmica> findByTakmicenje(Long id);
 	

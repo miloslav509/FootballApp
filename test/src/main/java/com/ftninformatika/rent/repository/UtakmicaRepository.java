@@ -2,6 +2,8 @@ package com.ftninformatika.rent.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +23,6 @@ public interface UtakmicaRepository extends JpaRepository<Utakmica, Long> {
 	List<Utakmica> findByKolo(int kolo);
 	
 	List<Utakmica> findBySudijaId(Long id);
+	
+	Page<Utakmica> getAllPage(Pageable pageable);
 }

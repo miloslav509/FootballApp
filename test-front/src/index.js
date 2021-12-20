@@ -7,11 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './NotFound';
 import Login from './components/Login';
 import {logout} from './services/auth';
-import Festivali from './components/Festivali';
-import AddFestival from './components/AddFestival';
-import EditFestival from "./components/EditFestival";
-import Rezervisi from './components/Rezervisi';
-// import EditAutomobil from './components/EditAutomobil';
 
 class App extends React.Component {
 
@@ -37,10 +32,6 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/login"  render={()=><Redirect to="/"/>}/>
-                  <Route exact path="/festivali" component={Festivali} />
-                  <Route exact path="/festivali/dodaj" component={AddFestival} />
-                  <Route exact path="/festivali/izmeni/:id" component={EditFestival} />
-                  <Route exact path="/festivali/rezervisi/:id" component={Rezervisi} />
                  
                   <Route component={NotFound} />
                 </Switch>
