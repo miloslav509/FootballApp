@@ -51,6 +51,8 @@ public class UtakmicaDTO {
 	 private String takmicenjeNaziv;
 	 
 	 private Long takmicenjeId;
+	 
+	 private boolean odigrana;
 
 	public Long getId() {
 		return id;
@@ -227,6 +229,15 @@ public class UtakmicaDTO {
 	public void setTakmicenjeId(Long takmicenjeId) {
 		this.takmicenjeId = takmicenjeId;
 	}
+
+	public boolean isOdigrana() {
+		return odigrana;
+	}
+
+	public void setOdigrana(boolean odigrana) {
+		this.odigrana = odigrana;
+	}
 	 
+	
 	 
 }

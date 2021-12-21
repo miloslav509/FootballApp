@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ftninformatika.rent.model.Utakmica;
@@ -24,9 +25,9 @@ public class JpaUtakmicaService implements UtakmicaService {
 	}
 
 	@Override
-	public Page<Utakmica> findAll(int pageNo) {
+	public Page<Utakmica> findAll(Pageable pageable) {
 		
-		return utakmicaRepository.getAllPage(PageRequest.of(pageNo, 5));
+		return utakmicaRepository.findAll(pageable);
 	}
 
 	@Override

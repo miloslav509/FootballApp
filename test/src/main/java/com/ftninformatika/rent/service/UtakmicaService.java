@@ -3,6 +3,7 @@ package com.ftninformatika.rent.service;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.ftninformatika.rent.model.Utakmica;
 
@@ -10,7 +11,7 @@ public interface UtakmicaService {
 
 	Utakmica findOne(Long id);
 	
-	Page<Utakmica> findAll(int page);
+	Page<Utakmica> findAll(Pageable pageable);
 	
 	List<Utakmica> findByTakmicenje(Long id);
 	

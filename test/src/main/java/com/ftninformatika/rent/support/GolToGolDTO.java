@@ -16,9 +16,12 @@ public class GolToGolDto implements Converter<Gol, GolDTO> {
 	public GolDTO convert(Gol gol) {
 		GolDTO dto = new GolDTO();
 		
-		dto.setAsistentId(gol.getAsistent().getId());
-		dto.setAsistentIme(gol.getAsistent().getIme());
-		dto.setAsistentPrezime(gol.getAsistent().getPrezime());
+		if (gol.getAsistent() != null) {
+			dto.setAsistentId(gol.getAsistent().getId());
+			dto.setAsistentIme(gol.getAsistent().getIme());
+			dto.setAsistentPrezime(gol.getAsistent().getPrezime());
+		}
+		
 		dto.setId(gol.getId());
 		dto.setMinut(gol.getMinut());
 		dto.setStrelacId(gol.getStrelacGola().getId());

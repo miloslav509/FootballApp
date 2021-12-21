@@ -38,8 +38,11 @@ public class Stadion {
 	@Column
 	private String grad;
 	
-	@OneToOne(mappedBy = "stadion")
+	@OneToOne(mappedBy = "stadion", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Klub klub;
+	
+	@OneToMany(mappedBy = "stadion", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Utakmica> utakmice = new ArrayList<>();
 
 	public Stadion() {
 		super();

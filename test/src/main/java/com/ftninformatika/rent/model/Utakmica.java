@@ -49,6 +49,9 @@ public class Utakmica {
 	@Column
 	private int posedGost;
 	
+	@Column
+	private boolean odigrana = false;
+	
 	
 	@OneToMany(mappedBy = "utakmica", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Gol> golovi = new ArrayList<>();
@@ -86,29 +89,10 @@ public class Utakmica {
 	}
 
 	
-
-	
-
-	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, List<Gol> golovi,
-			int goloviDomacin, int goloviGost, Takmicenje takmicenje, int kolo) {
-		super();
-		this.id = id;
-		this.datumIVreme = datumIVreme;
-		this.klubDomacin = klubDomacin;
-		this.klubGost = klubGost;
-		this.golovi = golovi;
-		this.goloviDomacin = goloviDomacin;
-		this.goloviGost = goloviGost;
-		this.takmicenje = takmicenje;
-		this.kolo = kolo;
-	}
-
-	
-
 	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, int suteviDomacin,
 			int suteviGost, int suteviUGolDomacin, int suteviUGolGost, int posedDomacin, int posedGost,
-			List<Gol> golovi, Stadion stadion, int goloviDomacin, int goloviGost, Takmicenje takmicenje, int kolo,
-			Sudija sudija) {
+			boolean odigrana, List<Gol> golovi, List<Komentar> komentari, Stadion stadion, int goloviDomacin,
+			int goloviGost, Takmicenje takmicenje, int kolo, Sudija sudija) {
 		super();
 		this.id = id;
 		this.datumIVreme = datumIVreme;
@@ -120,31 +104,7 @@ public class Utakmica {
 		this.suteviUGolGost = suteviUGolGost;
 		this.posedDomacin = posedDomacin;
 		this.posedGost = posedGost;
-		this.golovi = golovi;
-		this.stadion = stadion;
-		this.goloviDomacin = goloviDomacin;
-		this.goloviGost = goloviGost;
-		this.takmicenje = takmicenje;
-		this.kolo = kolo;
-		this.sudija = sudija;
-	}
-
-	
-	public Utakmica(Long id, LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, int suteviDomacin,
-			int suteviGost, int suteviUGolDomacin, int suteviUGolGost, int posedDomacin, int posedGost,
-			List<Gol> golovi, List<Komentar> komentari, Stadion stadion, int goloviDomacin, int goloviGost,
-			Takmicenje takmicenje, int kolo, Sudija sudija) {
-		super();
-		this.id = id;
-		this.datumIVreme = datumIVreme;
-		this.klubDomacin = klubDomacin;
-		this.klubGost = klubGost;
-		this.suteviDomacin = suteviDomacin;
-		this.suteviGost = suteviGost;
-		this.suteviUGolDomacin = suteviUGolDomacin;
-		this.suteviUGolGost = suteviUGolGost;
-		this.posedDomacin = posedDomacin;
-		this.posedGost = posedGost;
+		this.odigrana = odigrana;
 		this.golovi = golovi;
 		this.komentari = komentari;
 		this.stadion = stadion;
@@ -154,8 +114,31 @@ public class Utakmica {
 		this.kolo = kolo;
 		this.sudija = sudija;
 	}
-	
-	
+
+	public Utakmica(LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, int suteviDomacin, int suteviGost,
+			int suteviUGolDomacin, int suteviUGolGost, int posedDomacin, int posedGost, boolean odigrana,
+			List<Gol> golovi, List<Komentar> komentari, Stadion stadion, int goloviDomacin, int goloviGost,
+			Takmicenje takmicenje, int kolo, Sudija sudija) {
+		super();
+		this.datumIVreme = datumIVreme;
+		this.klubDomacin = klubDomacin;
+		this.klubGost = klubGost;
+		this.suteviDomacin = suteviDomacin;
+		this.suteviGost = suteviGost;
+		this.suteviUGolDomacin = suteviUGolDomacin;
+		this.suteviUGolGost = suteviUGolGost;
+		this.posedDomacin = posedDomacin;
+		this.posedGost = posedGost;
+		this.odigrana = odigrana;
+		this.golovi = golovi;
+		this.komentari = komentari;
+		this.stadion = stadion;
+		this.goloviDomacin = goloviDomacin;
+		this.goloviGost = goloviGost;
+		this.takmicenje = takmicenje;
+		this.kolo = kolo;
+		this.sudija = sudija;
+	}
 
 	public Utakmica(LocalDateTime datumIVreme, Klub klubDomacin, Klub klubGost, Stadion stadion, Takmicenje takmicenje,
 			int kolo, Sudija sudija) {
@@ -340,6 +323,16 @@ public class Utakmica {
 
 	public void setKomentari(List<Komentar> komentari) {
 		this.komentari = komentari;
+	}
+	
+	
+
+	public boolean isOdigrana() {
+		return odigrana;
+	}
+
+	public void setOdigrana(boolean odigrana) {
+		this.odigrana = odigrana;
 	}
 
 	@Override

@@ -24,5 +24,4 @@ public interface UtakmicaRepository extends JpaRepository<Utakmica, Long> {
 	
 	List<Utakmica> findBySudijaId(Long id);
 	
-	Page<Utakmica> getAllPage(Pageable pageable);
 }

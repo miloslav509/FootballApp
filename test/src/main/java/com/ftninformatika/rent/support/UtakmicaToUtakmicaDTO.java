@@ -26,18 +26,21 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 		dto.setDomacinNaziv(utakmica.getKlubDomacin().getNaziv());
 		dto.setGostId(utakmica.getKlubGost().getId());
 		dto.setGostNaziv(utakmica.getKlubGost().getNaziv());
-		dto.setGolovi(golToGolDTO.convert(utakmica.getGolovi()));
-		dto.setGoloviDomacin(utakmica.getGoloviDomacin());
-		dto.setGoloviGost(utakmica.getGoloviGost());
 		dto.setKolo(utakmica.getKolo());
 		dto.setTakmicenjeId(utakmica.getTakmicenje().getId());
 		dto.setTakmicenjeNaziv(utakmica.getTakmicenje().getNazivTakmicenja());
-		dto.setSuteviUGolGost(utakmica.getSuteviUGolGost());
-		dto.setSuteviUGolDomacin(utakmica.getSuteviUGolDomacin());
-		dto.setSuteviDomacin(utakmica.getSuteviDomacin());
-		dto.setSuteviGost(utakmica.getSuteviGost());
-		dto.setPosedDomacin(utakmica.getPosedDomacin());
-		dto.setPosedGost(utakmica.getPosedGost());
+		dto.setOdigrana(utakmica.isOdigrana());
+		if (utakmica.isOdigrana()) {
+			dto.setSuteviUGolGost(utakmica.getSuteviUGolGost());
+			dto.setSuteviUGolDomacin(utakmica.getSuteviUGolDomacin());
+			dto.setSuteviDomacin(utakmica.getSuteviDomacin());
+			dto.setSuteviGost(utakmica.getSuteviGost());
+			dto.setPosedDomacin(utakmica.getPosedDomacin());
+			dto.setPosedGost(utakmica.getPosedGost());
+			dto.setGolovi(golToGolDTO.convert(utakmica.getGolovi()));
+			dto.setGoloviDomacin(utakmica.getGoloviDomacin());
+			dto.setGoloviGost(utakmica.getGoloviGost());
+		}
 		
 		return dto;
 	}

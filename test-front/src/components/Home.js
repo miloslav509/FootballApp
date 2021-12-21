@@ -20,7 +20,7 @@ class Home extends React.Component {
       }
     }
 
-    AppAxios.get('/utakmice', config)
+    AppAxios.get('/utakmice/by-page', config)
         .then(res => {
             console.log(res);
             this.setState({mathes: res.data});
