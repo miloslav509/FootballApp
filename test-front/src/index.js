@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './NotFound';
 import Login from './components/Login';
 import {logout} from './services/auth';
+import Match from "./components/Matches/Match";
 
 class App extends React.Component {
 
@@ -32,7 +33,7 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/login"  render={()=><Redirect to="/"/>}/>
-                 
+                  <Route exact path="/match/:id" component={Match}/>
                   <Route component={NotFound} />
                 </Switch>
               </Container>

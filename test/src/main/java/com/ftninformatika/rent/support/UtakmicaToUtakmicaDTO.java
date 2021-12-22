@@ -21,7 +21,9 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 		UtakmicaDTO dto = new UtakmicaDTO();
 		
 		dto.setId(utakmica.getId());
-		dto.setDatumVreme(utakmica.getDatumIVreme().toString());
+		String datumVremeString = utakmica.getDatumIVreme().toString();
+		datumVremeString = datumVremeString.replace("T", " ");
+		dto.setDatumVreme(datumVremeString);
 		dto.setDomacinId(utakmica.getKlubDomacin().getId());
 		dto.setDomacinNaziv(utakmica.getKlubDomacin().getNaziv());
 		dto.setGostId(utakmica.getKlubGost().getId());

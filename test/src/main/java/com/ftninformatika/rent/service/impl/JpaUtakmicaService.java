@@ -25,9 +25,9 @@ public class JpaUtakmicaService implements UtakmicaService {
 	}
 
 	@Override
-	public Page<Utakmica> findAll(Pageable pageable) {
+	public Page<Utakmica> findAll(int pageNo) {
 		
-		return utakmicaRepository.findAll(pageable);
+		return utakmicaRepository.findAll(PageRequest.of(pageNo, 5));
 	}
 
 	@Override

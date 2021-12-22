@@ -36,14 +36,15 @@ public class UtakmicaController {
 	@Autowired
 	private UtakmicaDtoToUtakmica utakmicaDtoToUtakmica;
 	
-	@GetMapping("/by-page")
-    public ResponseEntity<Page<UtakmicaDTO>> get(Pageable pageable){
+	@GetMapping
+    public ResponseEntity<List<UtakmicaDTO>> get(
+    		@RequestParam(value = "pageNo", defaultValue = "0") int pageNo){
 
-        Page<Utakmica> utakmice = utakmicaService.findAll(pageable);
-        List<UtakmicaDTO> utakmiceLista = utakmicaToUtakmicaDto.convert(utakmice.toList());
-
-        Page<UtakmicaDTO> utakmiceDTO = new PageImpl<>(utakmiceLista, utakmice.getPageable(), utakmice.getTotalElements());
-
-        return new ResponseEntity<>(utakmiceDTO, HttpStatus.OK);
+		Page<Utakmica> utakmice = utakmicaService.findAll(pageNo);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Total-pages", Integer.toString(utakmice.getTotalPages()));
+		
+		return new ResponseEntity<>(utakmicaToUtakmicaDto.convert(utakmice.getContent()), headers, HttpStatus.OK);
     }
 }
