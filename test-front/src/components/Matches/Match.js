@@ -1,4 +1,5 @@
 import React from "react";
+import { Col, ProgressBar, Row } from "react-bootstrap";
 import AppAxios from "../../api/AppAxios";
 
 class Match extends React.Component {
@@ -65,7 +66,20 @@ class Match extends React.Component {
 
     render() {
         return (
-            <div>Match</div>
+            <div>
+                <Row>
+                    <Col>
+                        {this.state.hostPossesion}%
+                    </Col>
+                    <Col className="text-md-right">
+                        {this.state.guestPossesion}%
+                    </Col>
+                </Row>    
+                <ProgressBar>
+                    <ProgressBar now={this.state.hostPossesion}/>
+                    <ProgressBar variant="warning" now={this.state.guestPossesion} />
+                </ProgressBar>
+            </div>
         )
 
     }
