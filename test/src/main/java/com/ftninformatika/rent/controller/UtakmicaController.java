@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,4 +48,16 @@ public class UtakmicaController {
 		
 		return new ResponseEntity<>(utakmicaToUtakmicaDto.convert(utakmice.getContent()), headers, HttpStatus.OK);
     }
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<UtakmicaDTO> getOne(@PathVariable Long id) {
+		Utakmica utakmica = utakmicaService.findOne(id);
+		
+		if (utakmica != null) {
+			return new ResponseEntity<UtakmicaDTO>(utakmicaToUtakmicaDto.convert(utakmica), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 }
