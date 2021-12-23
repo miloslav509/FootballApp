@@ -283,9 +283,36 @@ INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
 INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
               VALUES (21, 'Gabriel', 'Martinelli', 'MID', 35, 1);
 INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
-              VALUES (22, 'Folarin', 'Balogun', 'ST', 26, 1);       
+              VALUES (22, 'Folarin', 'Balogun', 'ST', 26, 1);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (23, 'Bruno', 'Fernandes', 'MID', 18, 13);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (24, 'Mason', 'Greenwood', 'ST', 11, 13);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (25, ' ', 'Fred', 'MID', 17, 13);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (26, 'Viktor', 'Lindelof', 'DEF', 2, 13);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (27, 'Paul', 'Pogba', 'MID', 6, 13);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (28, 'Luke', 'Ayling', 'DEF', 2, 9);
+INSERT INTO igrac (id, ime, prezime, pozicija, broj, klub_id)
+              VALUES (29, 'Stuart', 'Dallas', 'DEF', 15, 9);              
               
 INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
               VALUES (1, 8, 3, 1, 22);
 INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
-              VALUES (2, 7, null, 1, 73);              
+              VALUES (2, 7, null, 1, 73);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (3, 23, 27, 2, 30);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (4, 28, 29, 2, 49);              
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (5, 24, 27, 2, 52);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (6, 23, 27, 2, 54);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (7, 23, 26, 2, 60);
+INSERT INTO gol (id, strelac_gola_id, asistent_id, utakmica_id, minut)
+              VALUES (8, 25, 27, 2, 68);
+              

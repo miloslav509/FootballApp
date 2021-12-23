@@ -25,6 +25,8 @@ public class GolDTO {
 	 private String strelacPrezime;
 	 
 	 private Long asistentId;
+	 
+	 private Long strelacKlubId;
 
 	public Long getId() {
 		return id;
@@ -104,6 +106,14 @@ public class GolDTO {
 
 	public void setStrelacPrezime(String strelacPrezime) {
 		this.strelacPrezime = strelacPrezime;
+	}
+
+	public Long getStrelacKlubId() {
+		return strelacKlubId;
+	}
+
+	public void setStrelacKlubId(Long strelacKlubId) {
+		this.strelacKlubId = strelacKlubId;
 	}
 	 
 	

@@ -30,6 +30,7 @@ public class GolToGolDto implements Converter<Gol, GolDTO> {
 		dto.setUtakmicaId(gol.getUtakmica().getId());
 		String utakmica = gol.getUtakmica().getKlubDomacin().getNaziv() + " - " + gol.getUtakmica().getKlubGost().getNaziv();
 		dto.setUtakmicaNaziv(utakmica);
+		dto.setStrelacKlubId(gol.getStrelacGola().getKlub().getId());
 		return dto;
 	}
 
