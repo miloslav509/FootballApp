@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 import Login from './components/Login';
 import {logout} from './services/auth';
 import Match from "./components/Matches/Match";
+import Table from "./components/Table/Table";
 
 class App extends React.Component {
 
@@ -23,8 +24,8 @@ class App extends React.Component {
                     JWD
                 </Navbar.Brand>
                 <Nav>
-                  <Nav.Link as={Link} to="/festivali">
-                    Festivali
+                  <Nav.Link as={Link} to="/table">
+                    Table
                   </Nav.Link>
                     <Button onClick={()=>logout()}>Logout</Button>
                 </Nav>
@@ -33,6 +34,7 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/login"  render={()=><Redirect to="/"/>}/>
+                  <Route exact path="/table" component={Table}/>
                   <Route exact path="/match/:id" component={Match}/>
                   <Route component={NotFound} />
                 </Switch>

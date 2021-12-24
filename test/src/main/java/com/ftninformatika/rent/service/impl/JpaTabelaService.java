@@ -22,9 +22,9 @@ public class JpaTabelaService implements TabelaService {
 	}
 
 	@Override
-	public List<Tabela> findAll(Long id) {
+	public List<Tabela> findAll() {
 		
-		return tabelaRepository.findAll();
+		return tabelaRepository.findAllByOrderByBodoviDesc();
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public interface TabelaService {
 
 	Tabela findOne(Long id);
 	
-	List<Tabela> findAll(Long id);
+	List<Tabela> findAll();
 	
 	Tabela save(Tabela tabela);
 	
