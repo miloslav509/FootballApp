@@ -27,6 +27,7 @@ public class TabelaToTabelaDto implements Converter<Tabela, TabelaDTO> {
 		dto.setPrimljeniGolovi(tabela.getPrimljeniGolovi());
 		dto.setPostignutiGolovi(tabela.getPostignutiGolovi());
 		dto.setGolRazlika(tabela.getGolRazlika());
+		dto.setKlubSlika(tabela.getKlub().getSlika());
 		return dto;
 	}
 	

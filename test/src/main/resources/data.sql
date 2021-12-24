@@ -112,46 +112,46 @@ INSERT INTO sudija (id, ime, prezime)
 INSERT INTO takmicenje (id, naziv_takmicenja, organizator, godina)
               VALUES (1,'Premier League', 'Barclays', '2021/2022');
               
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (1,'Arsenal', 1, 1);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (2,'Aston Villa', 2, 2);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (3,'Brentford', 3, 3);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (4,'Brighton', 4, 4);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (5,'Burnley', 5, 5);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (6,'Chelsea', 6, 6);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (7,'Crystal Palace', 7, 7);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (8,'Everton', 8, 8);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (9,'Leeds United', 9, 9);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (10,'Leicester City', 10, 10);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (11,'Liverpool', 11, 11);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (12,'Mancester City', 12, 12);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (13,'Manchester United', 13, 13);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (14,'Newcastle United', 14, 14);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (15,'Norwich City', 15, 15);
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (16,'Southampton', 16, 16);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (17,'Tottenham Hotspur', 17, 17);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (18,'Watford', 18, 18);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (19,'West Han United', 19, 19);                   
-INSERT INTO klub (id, naziv, stadion_id, trener_id)
-              VALUES (20,'Wolverhampton Wanderers', 20, 20);                                 
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (1,'Arsenal', 1, 1, 'https://upload.wikimedia.org/wikipedia/sr/8/82/Arsenal_FC.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (2,'Aston Villa', 2, 2, 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/1200px-Aston_Villa_FC_crest_%282016%29.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (3,'Brentford', 3, 3, 'https://cdn.freelogovectors.net/wp-content/uploads/2021/03/brentford-fc-logo-freelogovectors.net_.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (4,'Brighton', 4, 4, 'https://upload.wikimedia.org/wikipedia/sr/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/768px-Brighton_%26_Hove_Albion_logo.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (5,'Burnley', 5, 5, 'https://upload.wikimedia.org/wikipedia/en/thumb/6/62/Burnley_F.C._Logo.svg/1200px-Burnley_F.C._Logo.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (6,'Chelsea', 6, 6, 'https://upload.wikimedia.org/wikipedia/sco/thumb/c/cc/Chelsea_FC.svg/2048px-Chelsea_FC.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (7,'Crystal Palace', 7, 7, 'https://www.logofootball.net/wp-content/uploads/Crystal-Palace-FC-HD-Logo.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (8,'Everton', 8, 8, 'https://upload.wikimedia.org/wikipedia/sh/thumb/7/7c/Everton_FC_logo.svg/1200px-Everton_FC_logo.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (9,'Leeds United', 9, 9, 'https://upload.wikimedia.org/wikipedia/en/thumb/5/54/Leeds_United_F.C._logo.svg/1200px-Leeds_United_F.C._logo.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (10,'Leicester City', 10, 10, 'https://logodownload.org/wp-content/uploads/2019/05/leicester-city-logo.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (11,'Liverpool', 11, 11, 'https://upload.wikimedia.org/wikipedia/sr/thumb/b/b2/Liverpool_FC_logo.png/1200px-Liverpool_FC_logo.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (12,'Mancester City', 12, 12, 'https://upload.wikimedia.org/wikipedia/sr/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (13,'Manchester United', 13, 13, 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1200px-Manchester_United_FC_crest.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (14,'Newcastle United', 14, 14, 'https://logodownload.org/wp-content/uploads/2019/10/newcastle-united-logo-1.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (15,'Norwich City', 15, 15, 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Norwich_City.svg/1200px-Norwich_City.svg.png');
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (16,'Southampton', 16, 16, 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/FC_Southampton.svg/1200px-FC_Southampton.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (17,'Tottenham Hotspur', 17, 17, 'https://logowik.com/content/uploads/images/191_tottenhamhotspur.jpg');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (18,'Watford', 18, 18, 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Watford.svg/1200px-Watford.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (19,'West Han United', 19, 19, 'https://upload.wikimedia.org/wikipedia/sr/thumb/c/c2/West_Ham_United_FC_logo.svg/1845px-West_Ham_United_FC_logo.svg.png');                   
+INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
+              VALUES (20,'Wolverhampton Wanderers', 20, 20, 'https://logodownload.org/wp-content/uploads/2019/04/wolverhampton-logo-escudo.png');                                 
               
               
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, suteviugol_domacin, 

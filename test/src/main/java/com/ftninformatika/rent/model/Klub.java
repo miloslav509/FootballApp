@@ -42,6 +42,9 @@ public class Klub {
 	@OneToOne(mappedBy = "klub")
 	private Tabela tabela;
 	
+	@Column
+	private String slika;
+	
 	
 
 	public Klub() {
@@ -115,31 +118,6 @@ public class Klub {
 	}
 
 
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, igraci, naziv, stadion, trener, utakmiceDomacin, utakmiceGost);
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Klub other = (Klub) obj;
-		return Objects.equals(id, other.id) && Objects.equals(igraci, other.igraci)
-				&& Objects.equals(naziv, other.naziv) && Objects.equals(stadion, other.stadion)
-				&& Objects.equals(trener, other.trener) && Objects.equals(utakmiceDomacin, other.utakmiceDomacin)
-				&& Objects.equals(utakmiceGost, other.utakmiceGost);
-	}
-
-
-
 	public List<Utakmica> getUtakmiceDomacin() {
 		return utakmiceDomacin;
 	}
@@ -160,6 +138,56 @@ public class Klub {
 
 	public void setUtakmiceGost(List<Utakmica> utakmiceGost) {
 		this.utakmiceGost = utakmiceGost;
+	}
+
+	
+
+
+	public Tabela getTabela() {
+		return tabela;
+	}
+
+
+
+	public void setTabela(Tabela tabela) {
+		this.tabela = tabela;
+	}
+
+
+
+	public String getSlika() {
+		return slika;
+	}
+
+
+
+	public void setSlika(String slika) {
+		this.slika = slika;
+	}
+
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, igraci, naziv, slika, stadion, tabela, trener, utakmiceDomacin, utakmiceGost);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Klub other = (Klub) obj;
+		return Objects.equals(id, other.id) && Objects.equals(igraci, other.igraci)
+				&& Objects.equals(naziv, other.naziv) && Objects.equals(slika, other.slika)
+				&& Objects.equals(stadion, other.stadion) && Objects.equals(tabela, other.tabela)
+				&& Objects.equals(trener, other.trener) && Objects.equals(utakmiceDomacin, other.utakmiceDomacin)
+				&& Objects.equals(utakmiceGost, other.utakmiceGost);
 	}
 
 

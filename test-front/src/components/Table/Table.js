@@ -1,6 +1,6 @@
 import React from "react";
 import AppAxios from "../../api/AppAxios";
-import { Table } from "react-bootstrap";
+import { Table, Image } from "react-bootstrap";
 
 class TableView extends React.Component {
 
@@ -31,7 +31,7 @@ class TableView extends React.Component {
             return (
                 <tr key={club.id}>
                     <td>{club.id}</td>
-                    <td>{club.klubNaziv}</td>
+                    <td><Image src={club.klubSlika} width={50} height={50}  rounded  /> {club.klubNaziv}</td>
                     <td>{club.pobede + club.porazi + club.nereseneUtakmice}</td>
                     <td>{club.pobede}</td>
                     <td>{club.nereseneUtakmice}</td>
@@ -53,7 +53,7 @@ class TableView extends React.Component {
 
                 <div>
                     <Table id="movies-table" style={{ margin: 5 }}>
-                        <thead>
+                        <thead className="thead-dark">
                             <tr>
                                 <th>Position</th>
                                 <th>Club</th>

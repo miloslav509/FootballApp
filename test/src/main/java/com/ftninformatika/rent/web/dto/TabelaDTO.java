@@ -24,6 +24,8 @@ public class TabelaDTO {
 	 private int nereseneUtakmice;
 	 
 	 private int golRazlika;
+	 
+	 private String klubSlika;
 
 	public Long getId() {
 		return id;
@@ -105,6 +107,15 @@ public class TabelaDTO {
 	public void setGolRazlika(int golRazlika) {
 		this.golRazlika = golRazlika;
 	}
+
+	public String getKlubSlika() {
+		return klubSlika;
+	}
+
+	public void setKlubSlika(String klubSlika) {
+		this.klubSlika = klubSlika;
+	}
 	 
+	
 	 
 }
