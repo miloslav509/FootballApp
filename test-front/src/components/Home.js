@@ -1,6 +1,6 @@
 import React from 'react'
 import AppAxios from '../api/AppAxios';
-import { Button, Table, ButtonGroup } from 'react-bootstrap';
+import { Button, Table, ButtonGroup, Image } from 'react-bootstrap';
 
 class Home extends React.Component {
 
@@ -45,14 +45,21 @@ class Home extends React.Component {
     this.props.history.push('/match/' + id);
   }
 
+  goToAddStats(id) {
+    this.props.history.push('/match/addstats/' + id);
+  }
+
   renderMatches() {
     return this.state.matches.map((match, index) => {
       return (
         <tr key={match.id}>
           <td>{match.datumVreme}</td>
-          <td>{match.domacinNaziv} {match.goloviDomacin} - {match.goloviGost} {match.gostNaziv}</td>
+          <td><Image src={match.domacinSlika} width={40} height={40}  rounded  /> {match.domacinNaziv} {match.goloviDomacin} - {match.goloviGost} {match.gostNaziv} <Image src={match.gostSlika} width={40} height={40}  rounded  /></td>
           {match.odigrana ?
             [<td><Button variant="success" onClick={() => this.goToStats(match.id)} >Stats</Button></td>]
+            : null}
+            {window.localStorage['role'] == 'ROLE_ADMIN'?
+            [<td><Button variant="info" onClick={() => this.goToAddStats(match.id)} >Add stats</Button></td>]
             : null}
         </tr>
       )

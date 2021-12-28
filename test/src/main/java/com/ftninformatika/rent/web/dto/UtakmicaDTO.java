@@ -57,6 +57,10 @@ public class UtakmicaDTO {
 	private String video;
 	
 	private List<KomentarDTO> komentari;
+	
+	private String domacinSlika;
+	
+	private String gostSlika;
 	 
 	public Long getId() {
 		return id;
@@ -256,6 +260,22 @@ public class UtakmicaDTO {
 
 	public void setKomentari(List<KomentarDTO> komentari) {
 		this.komentari = komentari;
+	}
+
+	public String getDomacinSlika() {
+		return domacinSlika;
+	}
+
+	public void setDomacinSlika(String domacinSlika) {
+		this.domacinSlika = domacinSlika;
+	}
+
+	public String getGostSlika() {
+		return gostSlika;
+	}
+
+	public void setGostSlika(String gostSlika) {
+		this.gostSlika = gostSlika;
 	}
 	 
 	

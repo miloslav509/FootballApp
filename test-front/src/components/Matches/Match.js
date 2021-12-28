@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, ProgressBar, Row, Card, Button, Form } from "react-bootstrap";
+import { Col, ProgressBar, Row, Card, Button, Form, Image } from "react-bootstrap";
 import AppAxios from "../../api/AppAxios";
 import { BiFootball } from "react-icons/bi";
 import Player from 'react-player';
@@ -30,7 +30,9 @@ class Match extends React.Component {
             videoURL: '',
             comments: [],
             week: -1,
-            addComment: ''
+            addComment: '',
+            hostImage: '',
+            guestImage: ''
         }
     }
 
@@ -63,7 +65,9 @@ class Match extends React.Component {
                     week: match.kolo,
                     videoURL: match.video,
                     id: match.id,
-                    comments: match.komentari
+                    comments: match.komentari,
+                    hostImage: match.domacinSlika,
+                    guestImage: match.gostSlika
                 })
                 console.log(this.state);
             })
@@ -194,10 +198,12 @@ class Match extends React.Component {
                 <Row>
                     <Col><h6>{this.state.week}. week</h6></Col><Col className="text-md-right"><h6>{this.state.dateTime}</h6></Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <h3 className="text-center">{this.state.hostName} {this.state.hostGoals} - {this.state.guestGoals} {this.state.guestName}</h3>
-                    </Col>
+                <Row className="align-items-center displey-flex">
+                    <Col></Col>
+                    <Image src={this.state.hostImage} width={40} height={40}  />
+                    <h3 className="text-center">{this.state.hostName} {this.state.hostGoals} - {this.state.guestGoals} {this.state.guestName}</h3>
+                    <Image src={this.state.guestImage} width={40} height={40}  rounded  />
+                    <Col></Col>
                 </Row>
                 <Row>
                     <Col>

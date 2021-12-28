@@ -40,6 +40,8 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 		String sudija = utakmica.getSudija().getIme() + " " + utakmica.getSudija().getPrezime();
 		dto.setSudijaIme(sudija);
 		dto.setOdigrana(utakmica.isOdigrana());
+		dto.setDomacinSlika(utakmica.getKlubDomacin().getSlika());
+		dto.setGostSlika(utakmica.getKlubGost().getSlika());
 		if (utakmica.isOdigrana()) {
 			dto.setSuteviUGolGost(utakmica.getSuteviUGolGost());
 			dto.setSuteviUGolDomacin(utakmica.getSuteviUGolDomacin());
