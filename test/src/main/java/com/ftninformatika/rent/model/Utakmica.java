@@ -76,6 +76,9 @@ public class Utakmica {
 	
 	@ManyToOne 
 	private Sudija sudija;
+	
+	@Column
+	private String video;
 
 	public Utakmica() {
 		super();
@@ -151,6 +154,8 @@ public class Utakmica {
 		this.kolo = kolo;
 		this.sudija = sudija;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -333,6 +338,16 @@ public class Utakmica {
 
 	public void setOdigrana(boolean odigrana) {
 		this.odigrana = odigrana;
+	}
+	
+	
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
 	}
 
 	@Override

@@ -155,11 +155,11 @@ INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
               
               
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, suteviugol_domacin, 
-						suteviugol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id, odigrana)
-              VALUES (1, '2021-08-13 21:00', 3, 1, 8, 22, 3, 4, 35, 65, 3, 2, 0, 1, 1, 1, true);
+						suteviugol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id, odigrana, video)
+              VALUES (1, '2021-08-13 21:00', 3, 1, 8, 22, 3, 4, 35, 65, 3, 2, 0, 1, 1, 1, true, 'https://www.youtube.com/watch?v=RJxHDEC-jAk');
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, suteviugol_domacin, 
-						suteviugol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id, odigrana)
-              VALUES (2, '2021-08-14 13:30', 13, 9, 16, 10, 8, 3, 49, 51, 13, 5, 1, 1, 1, 2, true);
+						suteviugol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id, odigrana, video)
+              VALUES (2, '2021-08-14 13:30', 13, 9, 16, 10, 8, 3, 49, 51, 13, 5, 1, 1, 1, 2, true, 'https://www.youtube.com/watch?v=BuiYpgcBznc');
 INSERT INTO utakmica (id, datum_vreme, klub_domacin_id, klub_gost_id, sutevi_domacin, sutevi_gost, suteviugol_domacin, 
 						suteviugol_gost, posed_domacin, posed_gost, stadion_id, golovi_domacin, golovi_gost, takmicenje_id, kolo, sudija_id, odigrana)
               VALUES (3, '2021-08-14 16:00', 5, 4, 14, 14, 3, 8, 36, 64, 5, 1, 2, 1, 1, 3, true);

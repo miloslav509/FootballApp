@@ -21,7 +21,9 @@ public class KomentarToKomentarDto implements Converter<Komentar, KomentarDTO> {
 		dto.setKorisnikKorisnickoIme(komentar.getKorisnik().getKorisnickoIme());
 		dto.setSadrzaj(komentar.getSadrzaj());
 		dto.setUtakmicaId(komentar.getUtakmica().getId());
-		dto.setDatumVreme(komentar.getDatumIVreme().toString());
+		String datumVremeString = komentar.getDatumIVreme().toString();
+		datumVremeString = datumVremeString.replace("T", " ");
+		dto.setDatumVreme(datumVremeString);
 		
 		return dto;
 	}

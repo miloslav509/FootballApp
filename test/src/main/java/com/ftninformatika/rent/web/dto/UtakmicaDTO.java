@@ -7,53 +7,57 @@ import javax.validation.constraints.Positive;
 
 public class UtakmicaDTO {
 
-	 @Positive(message = "Id mora biti pozitivan broj.")
-	 private Long id;
+	@Positive(message = "Id mora biti pozitivan broj.")
+	private Long id;
 	 
-	 private String datumVreme;
+	private String datumVreme;
 	 
-	 private String domacinNaziv;
+	private String domacinNaziv;
 	 
-	 private Long domacinId;
+	private Long domacinId;
 	 
-	 private String gostNaziv;
+	private String gostNaziv;
 	 
-	 private Long gostId;
+	private Long gostId;
 	 
-	 private int suteviDomacin;
+	private int suteviDomacin;
 	 
-	 private int suteviGost;
+	private int suteviGost;
 	 
-	 private int suteviUGolDomacin;
+	private int suteviUGolDomacin;
 	 
-	 private int suteviUGolGost;
+	private int suteviUGolGost;
 	 
-	 private int posedGost;
+	private int posedGost;
 	 
-	 private int posedDomacin;
+	private int posedDomacin;
 	 
-	 private String stadionNaziv;
+	private String stadionNaziv;
 	 
-	 private Long stadionId;
+	private Long stadionId;
 	 
-	 private int goloviDomacin;
+	private int goloviDomacin;
 	 
-	 private int goloviGost;
+	private int goloviGost;
 	 
-	 private List<GolDTO> golovi = new ArrayList<>();
+	private List<GolDTO> golovi = new ArrayList<>();
 	 
-	 private int kolo;
+	private int kolo;
 	 
-	 private String sudijaIme;
+	private String sudijaIme;
 	 
-	 private Long sudijaId;
+	private Long sudijaId;
 	 
-	 private String takmicenjeNaziv;
+	private String takmicenjeNaziv;
 	 
-	 private Long takmicenjeId;
+	private Long takmicenjeId;
 	 
-	 private boolean odigrana;
+	private boolean odigrana;
 
+	private String video;
+	
+	private List<KomentarDTO> komentari;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -236,6 +240,22 @@ public class UtakmicaDTO {
 
 	public void setOdigrana(boolean odigrana) {
 		this.odigrana = odigrana;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public List<KomentarDTO> getKomentari() {
+		return komentari;
+	}
+
+	public void setKomentari(List<KomentarDTO> komentari) {
+		this.komentari = komentari;
 	}
 	 
 	

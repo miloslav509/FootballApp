@@ -16,6 +16,9 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 	@Autowired
 	private GolToGolDto golToGolDTO;
 	
+	@Autowired
+	private KomentarToKomentarDto komentarToKomentarDto;
+	
 	@Override
 	public UtakmicaDTO convert(Utakmica utakmica) {
 		UtakmicaDTO dto = new UtakmicaDTO();
@@ -47,6 +50,8 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 			dto.setGolovi(golToGolDTO.convert(utakmica.getGolovi()));
 			dto.setGoloviDomacin(utakmica.getGoloviDomacin());
 			dto.setGoloviGost(utakmica.getGoloviGost());
+			dto.setVideo(utakmica.getVideo());
+			dto.setKomentari(komentarToKomentarDto.convert(utakmica.getKomentari()));
 		}
 		
 		return dto;
