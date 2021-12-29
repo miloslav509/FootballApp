@@ -49,6 +49,10 @@ class Home extends React.Component {
     this.props.history.push('/match/addstats/' + id);
   }
 
+  goToAddMatch() {
+    this.props.history.push('/match/add');
+  }
+
   renderMatches() {
     return this.state.matches.map((match, index) => {
       return (
@@ -79,6 +83,10 @@ class Home extends React.Component {
             {this.renderMatches()}
           </tbody>
         </Table>
+        {window.localStorage['role'] == 'ROLE_ADMIN'?
+            [<Button variant="info" onClick={() => this.goToAddMatch()} >Add match</Button>]
+            : null}
+        <br/><br/>    
         <ButtonGroup>
           <Button disabled={this.state.pageNo === 0} onClick={() => this.getMatches(this.state.pageNo - 1)}>Prev</Button>
           <Button disabled={this.state.pageNo === this.state.totalPages - 1} onClick={() => this.getMatches(this.state.pageNo + 1)}>Next</Button>

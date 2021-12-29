@@ -2,7 +2,7 @@ import React from "react";
 import AppAxios from "../../api/AppAxios";
 import { Row, Col, Image } from 'react-bootstrap';
 
-class AddStats extends React.Component {
+class EditMatch extends React.Component {
 
     constructor(props) {
         super(props);
@@ -92,4 +92,4 @@ class AddStats extends React.Component {
     }
 }
 
-export default AddStats;
+export default EditMatch;

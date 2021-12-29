@@ -9,7 +9,8 @@ import Login from './components/Login';
 import {logout} from './services/auth';
 import Match from "./components/Matches/Match";
 import Table from "./components/Table/Table";
-import AddStats from "./components/Matches/AddStats";
+import AddMatch from "./components/Matches/AddMatch";
+import EditMatch from "./components/Matches/EditMatch";
 
 class App extends React.Component {
 
@@ -36,8 +37,9 @@ class App extends React.Component {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/login"  render={()=><Redirect to="/"/>}/>
                   <Route exact path="/table" component={Table}/>
+                  <Route exact path='/match/add' component={AddMatch}/>
                   <Route exact path="/match/:id" component={Match}/>
-                  <Route exact path='/match/addstats/:id' component={AddStats}/>
+                  <Route exact path='/match/addstats/:id' component={EditMatch}/>
                   <Route component={NotFound} />
                 </Switch>
               </Container>
