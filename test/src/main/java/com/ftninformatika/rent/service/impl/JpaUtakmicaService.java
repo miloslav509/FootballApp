@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.ftninformatika.rent.model.Klub;
 import com.ftninformatika.rent.model.Utakmica;
 import com.ftninformatika.rent.repository.UtakmicaRepository;
 import com.ftninformatika.rent.service.UtakmicaService;
@@ -25,7 +26,7 @@ public class JpaUtakmicaService implements UtakmicaService {
 	}
 
 	@Override
-	public Page<Utakmica> findAll(int pageNo) {
+	public Page<Utakmica> findAllPage(int pageNo) {
 		
 		return utakmicaRepository.findAll(PageRequest.of(pageNo, 5));
 	}
@@ -69,6 +70,23 @@ public class JpaUtakmicaService implements UtakmicaService {
 	@Override
 	public Utakmica save(Utakmica utakmica) {
 		
+		Klub domacin = utakmica.getKlubDomacin();
+		
+		Klub gost = utakmica.getKlubGost();
+		
+		if (domacin.equals(gost)) {
+			return null;
+		}
+		
+		List<Utakmica> sveUtakmice = findAll();
+		
+		for (Utakmica utakmica2 : sveUtakmice) {
+			if (utakmica2.getKlubDomacin().equals(domacin) && utakmica2.getKlubGost().equals(gost)) {
+				
+				return null;
+			}
+		}
+		
 		return utakmicaRepository.save(utakmica);
 	}
 
@@ -86,6 +104,11 @@ public class JpaUtakmicaService implements UtakmicaService {
 			return utakmica;
 		}
 		return null;
+	}
+
+	@Override
+	public List<Utakmica> findAll() {
+		return utakmicaRepository.findAll();
 	}
 	
 	

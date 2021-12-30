@@ -45,7 +45,7 @@ public class UtakmicaController {
     public ResponseEntity<List<UtakmicaDTO>> get(
     		@RequestParam(value = "pageNo", defaultValue = "0") int pageNo){
 
-		Page<Utakmica> utakmice = utakmicaService.findAll(pageNo);
+		Page<Utakmica> utakmice = utakmicaService.findAllPage(pageNo);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Total-pages", Integer.toString(utakmice.getTotalPages()));

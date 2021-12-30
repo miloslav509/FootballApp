@@ -11,7 +11,9 @@ public interface UtakmicaService {
 
 	Utakmica findOne(Long id);
 	
-	Page<Utakmica> findAll(int pageNo);
+	Page<Utakmica> findAllPage(int pageNo);
+	
+	List<Utakmica> findAll();
 	
 	List<Utakmica> findByTakmicenje(Long id);
 	
