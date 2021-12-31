@@ -1,6 +1,6 @@
 import React from "react";
 import AppAxios from "../../api/AppAxios";
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Image, Form } from 'react-bootstrap';
 
 class EditMatch extends React.Component {
 
@@ -28,7 +28,11 @@ class EditMatch extends React.Component {
             videoURL: '',
             week: -1,
             hostImage: '',
-            guestImage: ''
+            guestImage: '',
+            hostPlayerGaol: '',
+            guestPlayerGola: '',
+            hostPlayers: [],
+            guestPlayers: []
         }
     }
 
@@ -66,12 +70,48 @@ class EditMatch extends React.Component {
                     guestImage: match.gostSlika
                 })
                 console.log(this.state);
+                this.getHostPlayers(this.state.hostId);
+                this.getGuestPlayers(this.state.guestId);
             })
             .catch(error => {
 
                 console.log(error);
                 alert('Error occured please try again!');
             });
+    }
+
+    getHostPlayers(id) {
+        AppAxios.get('/klubovi/' + id + '/igraci')
+            .then(res => {
+                console.log(res);
+                
+                this.setState({ hostPlayers: res.data })
+                console.log(this.state);
+            })
+            .catch(error => {
+
+                console.log(error);
+                alert('Error occured please try again!');
+            });
+    }
+
+    getGuestPlayers(id) {
+        AppAxios.get('/klubovi/' + id + '/igraci')
+            .then(res => {
+                console.log(res);
+                
+                this.setState({ guestPlayers: res.data })
+                console.log(this.state);
+            })
+            .catch(error => {
+
+                console.log(error);
+                alert('Error occured please try again!');
+            });
+    }
+
+    valueInputChange(e) {
+
     }
 
     render() {
@@ -86,6 +126,23 @@ class EditMatch extends React.Component {
                     <h3 className="text-center">{this.state.hostName} {this.state.hostGoals} - {this.state.guestGoals} {this.state.guestName}</h3>
                     <Image src={this.state.guestImage} width={40} height={40} rounded />
                     <Col></Col>
+                </Row>
+                <Row>
+                    <Col>
+                    <Form.Group>
+                            <Form.Label htmlFor="hostGaol">Guest goal</Form.Label>
+                            <Form.Control as="select" id="hostPlayerId" name="hostPlayerId" value={this.state.hostPlayerGaol} onChange={(e) => this.valueInputChange(e)}>
+                                <option></option>
+                                {
+                                    this.state.hostPlayers.map((player) => {
+                                        return (
+                                            <option key={player.id} value={player.id}>{player.ime} {player.prezime}</option>
+                                        )
+                                    })
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
                 </Row>
             </div>
         )

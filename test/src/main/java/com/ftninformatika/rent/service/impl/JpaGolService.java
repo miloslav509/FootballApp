@@ -6,14 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ftninformatika.rent.model.Gol;
+import com.ftninformatika.rent.model.Klub;
+import com.ftninformatika.rent.model.Utakmica;
 import com.ftninformatika.rent.repository.GolRepository;
 import com.ftninformatika.rent.service.GolService;
+import com.ftninformatika.rent.service.UtakmicaService;
 
 @Service
 public class JpaGolService implements GolService {
 
 	@Autowired
 	private GolRepository golRepository;
+	
+	@Autowired
+	private UtakmicaService utakmicaService;
 
 	@Override
 	public Gol findOne(Long id) {
@@ -47,6 +53,17 @@ public class JpaGolService implements GolService {
 
 	@Override
 	public Gol save(Gol gol) {
+		Utakmica utakmica = gol.getUtakmica();
+		Klub domacin = utakmica.getKlubDomacin();
+		Klub gost = utakmica.getKlubGost();
+		Klub igracKlub = gol.getStrelacGola().getKlub();
+		
+		if (domacin.equals(igracKlub)) {
+			utakmica.setGoloviDomacin(utakmica.getGoloviDomacin() + 1);
+		} else {
+			utakmica.setGoloviGost(utakmica.getGoloviGost() + 1);
+		}
+		utakmicaService.update(utakmica);
 		
 		return golRepository.save(gol);
 	}

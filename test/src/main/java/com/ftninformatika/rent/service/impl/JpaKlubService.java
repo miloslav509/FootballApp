@@ -54,6 +54,12 @@ public class JpaKlubService implements KlubService {
 		
 		return null;
 	}
+
+	@Override
+	public Klub findByIgrac(Long id) {
+		
+		return klubRepository.findByIgraciId(id);
+	}
 	
 	
 }

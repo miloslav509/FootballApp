@@ -11,4 +11,6 @@ import com.ftninformatika.rent.model.Klub;
 public interface KlubRepository extends JpaRepository<Klub, Long> {
 
 	List<Klub> findByStadionId(Long id);
+	
+	Klub findByIgraciId(Long id);
 }

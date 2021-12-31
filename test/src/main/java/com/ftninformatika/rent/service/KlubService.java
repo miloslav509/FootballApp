@@ -17,4 +17,6 @@ public interface KlubService {
 	Klub delete(Long id);
 	
 	List<Klub> findByStadion(Long id);
+	
+	Klub findByIgrac(Long id);
 }
