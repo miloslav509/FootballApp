@@ -63,6 +63,7 @@ public class JpaGolService implements GolService {
 		} else {
 			utakmica.setGoloviGost(utakmica.getGoloviGost() + 1);
 		}
+		utakmica.setOdigrana(true);
 		utakmicaService.update(utakmica);
 		
 		return golRepository.save(gol);

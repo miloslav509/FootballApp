@@ -32,10 +32,12 @@ public class GolDtoToGol implements Converter<GolDTO, Gol> {
 		}
 		
 		if (gol != null) {
-			gol.setAsistent(igracService.findOne(dto.getAsistentId()));
 			gol.setStrelacGola(igracService.findOne(dto.getStrelacId()));
 			gol.setMinut(dto.getMinut());
 			gol.setUtakmica(utakmicaService.findOne(dto.getUtakmicaId()));
+			if (dto.getAsistentId() != -1) {
+				gol.setAsistent(igracService.findOne(dto.getAsistentId()));
+			}
 		}
 		
 		return gol;

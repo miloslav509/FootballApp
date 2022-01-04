@@ -1,11 +1,23 @@
 import React from "react";
 import AppAxios from "../../api/AppAxios";
-import { Row, Col, Image, Form } from 'react-bootstrap';
+import { Row, Col, Image, Form, Button } from 'react-bootstrap';
 
 class EditMatch extends React.Component {
 
     constructor(props) {
         super(props);
+
+        let hostGoal = {
+            scorerId: -1,
+            assistId: -1,
+            minute: 0
+        }
+
+        let guestGoal = {
+            scorerId: -1,
+            assistId: -1,
+            minute: 0
+        }
 
         this.state = {
             id: -1,
@@ -29,10 +41,10 @@ class EditMatch extends React.Component {
             week: -1,
             hostImage: '',
             guestImage: '',
-            hostPlayerGaol: '',
-            guestPlayerGola: '',
             hostPlayers: [],
-            guestPlayers: []
+            guestPlayers: [],
+            hostGoal: hostGoal,
+            guestGoal: guestGoal
         }
     }
 
@@ -84,7 +96,7 @@ class EditMatch extends React.Component {
         AppAxios.get('/klubovi/' + id + '/igraci')
             .then(res => {
                 console.log(res);
-                
+
                 this.setState({ hostPlayers: res.data })
                 console.log(this.state);
             })
@@ -99,7 +111,7 @@ class EditMatch extends React.Component {
         AppAxios.get('/klubovi/' + id + '/igraci')
             .then(res => {
                 console.log(res);
-                
+
                 this.setState({ guestPlayers: res.data })
                 console.log(this.state);
             })
@@ -110,9 +122,53 @@ class EditMatch extends React.Component {
             });
     }
 
-    valueInputChange(e) {
-
+    create(e) {
+        let goal = e.target.name == "hostGoal" ? this.state.hostGoal : this.state.guestGoal;
+        console.log(goal);
+        let golDTO = {
+            strelacId: goal.scorerId,
+            utakmicaId: this.state.id,
+            minut: goal.minute,
+            asistentId: goal.assistId
+        }
+        let response = AppAxios.post("/golovi", golDTO)
+            .then((res) => {
+                console.log(res);
+                alert("Goal was added succesfully");
+                window.location.reload();
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Error occured please try again!");
+            }) 
     }
+
+    valueInputChangeHostGoal(e) {
+        let input = e.target;
+    
+        let id = input.id;
+        let value = input.value;
+    
+        let hostGoal = this.state.hostGoal;
+        hostGoal[id] = value;
+    
+        this.setState({ hostGoal: hostGoal });
+        console.log(this.state);
+    }
+
+    valueInputChangeGuestGoal(e) {
+        let input = e.target;
+    
+        let id = input.id;
+        let value = input.value;
+    
+        let guestGoal = this.state.guestGoal;
+        guestGoal[id] = value;
+    
+        this.setState({ guestGoal: guestGoal });
+        console.log(this.state);
+    }
+    
 
     render() {
         return (
@@ -129,9 +185,9 @@ class EditMatch extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                    <Form.Group>
-                            <Form.Label htmlFor="hostGaol">Guest goal</Form.Label>
-                            <Form.Control as="select" id="hostPlayerId" name="hostPlayerId" value={this.state.hostPlayerGaol} onChange={(e) => this.valueInputChange(e)}>
+                        <Form.Group>
+                            <Form.Label htmlFor="hostGaol">Host goal</Form.Label>
+                            <Form.Control as="select" id="scorerId" name="scorerId" value={this.state.hostGoal.scorer} onChange={(e) => this.valueInputChangeHostGoal(e)}>
                                 <option></option>
                                 {
                                     this.state.hostPlayers.map((player) => {
@@ -142,6 +198,67 @@ class EditMatch extends React.Component {
                                 }
                             </Form.Control>
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="hostGaolAssist">Assist</Form.Label>
+                            <Form.Control as="select" id="assistId" name="assistId" value={this.state.hostGoal.assist} onChange={(e) => this.valueInputChangeHostGoal(e)}>
+                                <option></option>
+                                {
+                                    this.state.hostPlayers.map((player) => {
+                                        return (
+                                            <option key={player.id} value={player.id}>{player.ime} {player.prezime}</option>
+                                        )
+                                    })
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                        <Form.Label htmlFor="minute">Minute</Form.Label>
+                        <Form.Control
+                            value={this.state.hostGoal.minute}
+                            id="minute"
+                            type="number"
+                            onChange={(e) => this.valueInputChangeHostGoal(e)}
+                        />
+                        <Button style={{ marginTop: "25px" }} name="hostGoal" onClick={(e) => this.create(e)}>
+                                Add
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Form.Group>
+                            <Form.Label htmlFor="guestGaol">Guest goal</Form.Label>
+                            <Form.Control as="select" id="scorerId" name="scorerId" value={this.state.guestGoal.scorer} onChange={(e) => this.valueInputChangeGuestGoal(e)}>
+                                <option></option>
+                                {
+                                    this.state.guestPlayers.map((player) => {
+                                        return (
+                                            <option key={player.id} value={player.id}>{player.ime} {player.prezime}</option>
+                                        )
+                                    })
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="guestGaolAssist">Assist</Form.Label>
+                            <Form.Control as="select" id="assistId" name="assistId" value={this.state.guestGoal.assist} onChange={(e) => this.valueInputChangeGuestGoal(e)}>
+                                <option></option>
+                                {
+                                    this.state.guestPlayers.map((player) => {
+                                        return (
+                                            <option key={player.id} value={player.id}>{player.ime} {player.prezime}</option>
+                                        )
+                                    })
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                        <Form.Label htmlFor="minute">Minute</Form.Label>
+                        <Form.Control
+                            value={this.state.guestGoal.minute}
+                            id="minute"
+                            type="number"
+                            onChange={(e) => this.valueInputChangeGuestGoal(e)}
+                        />
+                        <Button style={{ marginTop: "25px" }} name="guestGoal" onClick={(e) => this.create(e)}>
+                                Add
+                        </Button>
                     </Col>
                 </Row>
             </div>
