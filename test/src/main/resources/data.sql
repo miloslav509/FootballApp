@@ -117,7 +117,7 @@ INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
 INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
               VALUES (2,'Aston Villa', 2, 2, 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Aston_Villa_FC_crest_%282016%29.svg/1200px-Aston_Villa_FC_crest_%282016%29.svg.png');                   
 INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
-              VALUES (3,'Brentford', 3, 3, 'https://cdn.freelogovectors.net/wp-content/uploads/2021/03/brentford-fc-logo-freelogovectors.net_.png');                   
+              VALUES (3,'Brentford', 3, 3, 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Brentford_FC_crest.svg/1200px-Brentford_FC_crest.svg.png');                   
 INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)
               VALUES (4,'Brighton', 4, 4, 'https://upload.wikimedia.org/wikipedia/sr/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/768px-Brighton_%26_Hove_Albion_logo.svg.png');                   
 INSERT INTO klub (id, naziv, stadion_id, trener_id, slika)

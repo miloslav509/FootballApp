@@ -44,7 +44,8 @@ class EditMatch extends React.Component {
             hostPlayers: [],
             guestPlayers: [],
             hostGoal: hostGoal,
-            guestGoal: guestGoal
+            guestGoal: guestGoal,
+            reffereId: -1
         }
     }
 
@@ -79,7 +80,8 @@ class EditMatch extends React.Component {
                     id: match.id,
                     comments: match.komentari,
                     hostImage: match.domacinSlika,
-                    guestImage: match.gostSlika
+                    guestImage: match.gostSlika,
+                    reffereId: match.sudijaId
                 })
                 console.log(this.state);
                 this.getHostPlayers(this.state.hostId);
@@ -122,14 +124,14 @@ class EditMatch extends React.Component {
             });
     }
 
-    create(e) {
+    createGoal(e) {
         let goal = e.target.name == "hostGoal" ? this.state.hostGoal : this.state.guestGoal;
         console.log(goal);
         let golDTO = {
             strelacId: goal.scorerId,
             utakmicaId: this.state.id,
             minut: goal.minute,
-            asistentId: goal.assistId
+            asistentId: goal.assistId,
         }
         let response = AppAxios.post("/golovi", golDTO)
             .then((res) => {
@@ -140,35 +142,85 @@ class EditMatch extends React.Component {
             .catch((error) => {
                 console.log(error);
                 alert("Error occured please try again!");
-            }) 
+            })
+    }
+
+    createStats(e) {
+        e.preventDefault();
+        let stats = this.state;
+        if (parseInt(stats.hostPossesion) + parseInt(stats.guestPossesion) != 100) {
+            alert("Sum of host and guest possesion should be 100");
+            return;
+        }
+        let utakmicaDTO = {
+            id: stats.id,
+            domacinId: stats.hostId,
+            guestId: stats.guestId,
+            datumVreme: stats.dateTime,
+            kolo: stats.week,
+            takmicenjeId: 1,
+            sudijaId: stats.reffereId,
+            stadionId: stats.hostId,
+            goloviDomacin: stats.hostGoals,
+            goloviGost: stats.guestGoals,
+            suteviDomacin: stats.hostShots,
+            suteviGost: stats.guestShots,
+            suteviUGolDomacin: stats.hostShotsOnGoal,
+            suteviUGolGost: stats.guestShotsOnGoal,
+            posedDomacin: stats.hostPossesion,
+            posedGost: stats.guestPossesion,
+            video: stats.videoURL
+        }
+        console.log(utakmicaDTO)
+        AppAxios.put("/utakmice/" + stats.id, utakmicaDTO)
+            .then((res) => {
+                console.log(res);
+                alert("Match was update successfuly")
+                this.props.history.push("/");
+            })
+            .catch((error) => {
+                alert("Error occured please try again!");
+            })
     }
 
     valueInputChangeHostGoal(e) {
         let input = e.target;
-    
+
         let id = input.id;
         let value = input.value;
-    
+
         let hostGoal = this.state.hostGoal;
         hostGoal[id] = value;
-    
+
         this.setState({ hostGoal: hostGoal });
         console.log(this.state);
     }
 
     valueInputChangeGuestGoal(e) {
         let input = e.target;
-    
+
         let id = input.id;
         let value = input.value;
-    
+
         let guestGoal = this.state.guestGoal;
         guestGoal[id] = value;
-    
+
         this.setState({ guestGoal: guestGoal });
         console.log(this.state);
     }
-    
+
+    valueInputChange(e) {
+        let input = e.target;
+
+        let id = input.id;
+        let value = input.value;
+
+        let state = this.state;
+        state[id] = value;
+        this.setState({ state: state });
+        console.log(this.state);
+    }
+
 
     render() {
         return (
@@ -218,9 +270,31 @@ class EditMatch extends React.Component {
                             type="number"
                             onChange={(e) => this.valueInputChangeHostGoal(e)}
                         />
-                        <Button style={{ marginTop: "25px" }} name="hostGoal" onClick={(e) => this.create(e)}>
-                                Add
+                        <Button style={{ marginTop: "25px" }} name="hostGoal" onClick={(e) => this.createGoal(e)}>
+                            Add goal
                         </Button>
+                        <br /><br />
+                        <Form.Label htmlFor="posesion">{this.state.hostName} posesion</Form.Label>
+                        <Form.Control
+                            value={this.state.hostPossesion}
+                            id="hostPossesion"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
+                        <Form.Label htmlFor="shots">{this.state.hostName} shots</Form.Label>
+                        <Form.Control
+                            value={this.state.hostShots}
+                            id="hostShots"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
+                        <Form.Label htmlFor="shotsOnGoal">{this.state.hostName} shots on goal</Form.Label>
+                        <Form.Control
+                            value={this.state.hostShotsOnGoal}
+                            id="hostShotsOnGoal"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
                     </Col>
                     <Col>
                         <Form.Group>
@@ -256,10 +330,44 @@ class EditMatch extends React.Component {
                             type="number"
                             onChange={(e) => this.valueInputChangeGuestGoal(e)}
                         />
-                        <Button style={{ marginTop: "25px" }} name="guestGoal" onClick={(e) => this.create(e)}>
-                                Add
+                        <Button style={{ marginTop: "25px" }} name="guestGoal" onClick={(e) => this.createGoal(e)}>
+                            Add goal
                         </Button>
+                        <br /><br />
+                        <Form.Label htmlFor="posesion">{this.state.guestName} posesion</Form.Label>
+                        <Form.Control
+                            value={this.state.guestPossesion}
+                            id="guestPossesion"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
+                        <Form.Label htmlFor="shots">{this.state.guestName} shots</Form.Label>
+                        <Form.Control
+                            value={this.state.guestShots}
+                            id="guestShots"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
+                        <Form.Label htmlFor="shotsOnGoal">{this.state.guestName} shots on goal</Form.Label>
+                        <Form.Control
+                            value={this.state.guestShotsOnGoal}
+                            id="guestShotsOnGoal"
+                            type="number"
+                            onChange={(e) => this.valueInputChange(e)}
+                        />
                     </Col>
+                </Row>
+                <Row>
+                    <Form.Label htmlFor="video">Video</Form.Label>
+                    <Form.Control
+                        value={this.state.videoURL}
+                        id="videoURL"
+                        type="text"
+                        onChange={(e) => this.valueInputChange(e)}
+                    />
+                    <Button style={{ marginTop: "25px" }} variant="success" onClick={(e) => this.createStats(e)}>
+                        Add stats
+                    </Button>
                 </Row>
             </div>
         )

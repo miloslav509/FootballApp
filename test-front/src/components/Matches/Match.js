@@ -69,7 +69,7 @@ class Match extends React.Component {
                     hostImage: match.domacinSlika,
                     guestImage: match.gostSlika
                 })
-                console.log(this.state);
+                
             })
             .catch(error => {
 
