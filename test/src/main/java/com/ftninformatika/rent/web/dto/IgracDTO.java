@@ -22,9 +22,9 @@ public class IgracDTO {
 	 
 	 private int broj;
 	 
-	 private List<GolDTO> asistencije = new ArrayList<>();
+	 private int brojGolova;
 	 
-	 private List<GolDTO> golovi = new ArrayList<>();
+	 private int brojAsistencija;
 
 	public Long getId() {
 		return id;
@@ -74,20 +74,22 @@ public class IgracDTO {
 		this.klubId = klubId;
 	}
 
-	public List<GolDTO> getAsistencije() {
-		return asistencije;
+	
+
+	public int getBrojGolova() {
+		return brojGolova;
 	}
 
-	public void setAsistencije(List<GolDTO> asistencije) {
-		this.asistencije = asistencije;
+	public void setBrojGolova(int brojGolova) {
+		this.brojGolova = brojGolova;
 	}
 
-	public List<GolDTO> getGolovi() {
-		return golovi;
+	public int getBrojAsistencija() {
+		return brojAsistencija;
 	}
 
-	public void setGolovi(List<GolDTO> golovi) {
-		this.golovi = golovi;
+	public void setBrojAsistencija(int brojAsistencija) {
+		this.brojAsistencija = brojAsistencija;
 	}
 
 	public int getBroj() {

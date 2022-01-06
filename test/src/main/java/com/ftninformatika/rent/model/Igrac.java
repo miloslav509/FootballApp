@@ -41,6 +41,12 @@ public class Igrac {
 	
 	@OneToMany(mappedBy = "asistent", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Gol> asistencije = new ArrayList<>();
+	
+	@Column
+	private int brojAsistencija;
+	
+	@Column
+	private int brojGolova;
 
 	public Igrac() {
 		super();
@@ -92,10 +98,11 @@ public class Igrac {
 		this.klub = klub;
 		this.golovi = golovi;
 		this.asistencije = asistencije;
+		this.brojGolova = golovi.size();
+		this.brojAsistencija = asistencije.size();
 	}
 
 	
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(asistencije, broj, golovi, id, ime, klub, pozicija, prezime);
@@ -178,6 +185,24 @@ public class Igrac {
 
 	public void setBroj(int broj) {
 		this.broj = broj;
+	}
+	
+	
+
+	public int getBrojAsistencija() {
+		return brojAsistencija;
+	}
+
+	public void setBrojAsistencija(int brojAsistencija) {
+		this.brojAsistencija = brojAsistencija;
+	}
+
+	public int getBrojGolova() {
+		return brojGolova;
+	}
+
+	public void setBrojGolova(int brojGolova) {
+		this.brojGolova = brojGolova;
 	}
 
 	@Override

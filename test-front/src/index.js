@@ -11,6 +11,7 @@ import Match from "./components/Matches/Match";
 import Table from "./components/Table/Table";
 import AddMatch from "./components/Matches/AddMatch";
 import EditMatch from "./components/Matches/EditMatch";
+import Players from "./components/Players/Players";
 
 class App extends React.Component {
 
@@ -29,6 +30,9 @@ class App extends React.Component {
                   <Nav.Link as={Link} to="/table">
                     Table
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/players">
+                    Players
+                  </Nav.Link>
                     <Button onClick={()=>logout()}>Logout</Button>
                 </Nav>
               </Navbar>
@@ -37,6 +41,7 @@ class App extends React.Component {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/login"  render={()=><Redirect to="/"/>}/>
                   <Route exact path="/table" component={Table}/>
+                  <Route exact path="/players" component={Players}/>
                   <Route exact path='/match/add' component={AddMatch}/>
                   <Route exact path="/match/:id" component={Match}/>
                   <Route exact path='/match/addstats/:id' component={EditMatch}/>

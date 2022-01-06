@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ftninformatika.rent.model.Gol;
+import com.ftninformatika.rent.model.Igrac;
 import com.ftninformatika.rent.model.Klub;
 import com.ftninformatika.rent.model.Utakmica;
 import com.ftninformatika.rent.repository.GolRepository;
 import com.ftninformatika.rent.service.GolService;
+import com.ftninformatika.rent.service.IgracService;
 import com.ftninformatika.rent.service.UtakmicaService;
 
 @Service
@@ -20,6 +22,9 @@ public class JpaGolService implements GolService {
 	
 	@Autowired
 	private UtakmicaService utakmicaService;
+	
+	@Autowired
+	private IgracService igracService;
 
 	@Override
 	public Gol findOne(Long id) {
@@ -65,6 +70,16 @@ public class JpaGolService implements GolService {
 		}
 		utakmica.setOdigrana(true);
 		utakmicaService.update(utakmica);
+		
+		Igrac strelac = gol.getStrelacGola();
+		strelac.setBrojGolova(strelac.getBrojGolova() + 1);
+		igracService.update(strelac);
+		
+		if (gol.getAsistent() != null) {
+			Igrac asistent = gol.getAsistent();
+			asistent.setBrojAsistencija(asistent.getBrojAsistencija() + 1);
+			igracService.update(asistent);
+		}
 		
 		return golRepository.save(gol);
 	}
