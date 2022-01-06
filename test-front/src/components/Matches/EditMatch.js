@@ -155,7 +155,7 @@ class EditMatch extends React.Component {
         let utakmicaDTO = {
             id: stats.id,
             domacinId: stats.hostId,
-            guestId: stats.guestId,
+            gostId: stats.guestId,
             datumVreme: stats.dateTime,
             kolo: stats.week,
             takmicenjeId: 1,
@@ -169,7 +169,8 @@ class EditMatch extends React.Component {
             suteviUGolGost: stats.guestShotsOnGoal,
             posedDomacin: stats.hostPossesion,
             posedGost: stats.guestPossesion,
-            video: stats.videoURL
+            video: stats.videoURL,
+            odigrana: true
         }
         console.log(utakmicaDTO)
         AppAxios.put("/utakmice/" + stats.id, utakmicaDTO)

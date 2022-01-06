@@ -92,7 +92,7 @@ public class JpaUtakmicaService implements UtakmicaService {
 
 	@Override
 	public Utakmica update(Utakmica utakmica) {
-		utakmica.setOdigrana(true);
+		
 		return utakmicaRepository.save(utakmica);
 	}
 

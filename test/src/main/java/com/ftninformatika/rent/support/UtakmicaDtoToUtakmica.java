@@ -54,7 +54,8 @@ public class UtakmicaDtoToUtakmica implements Converter<UtakmicaDTO, Utakmica> {
 			utakmica.setTakmicenje(takmicenjeService.findOne(dto.getTakmicenjeId()));
 			utakmica.setSudija(sudijaService.findOne(dto.getSudijaId()));
 			utakmica.setStadion(stadionService.findOne(dto.getStadionId()));
-			if(!dto.isOdigrana()) {
+			utakmica.setOdigrana(dto.isOdigrana());
+			if(utakmica.isOdigrana()) {
 				utakmica.setVideo(dto.getVideo());
 				utakmica.setGoloviDomacin(dto.getGoloviDomacin());
 				utakmica.setGoloviGost(dto.getGoloviGost());
