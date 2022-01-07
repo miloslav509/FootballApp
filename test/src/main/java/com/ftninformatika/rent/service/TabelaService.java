@@ -15,4 +15,6 @@ public interface TabelaService {
 	Tabela update(Tabela tabela);
 	
 	Tabela delete(Long id);
+	
+	Tabela findByKlub(Long id);
 }

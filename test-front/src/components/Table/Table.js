@@ -26,11 +26,15 @@ class TableView extends React.Component {
             });
     }
 
+    getPosition(club){
+        return this.state.clubs.indexOf(club) + 1;
+    }
+
     renderClubs() {
         return this.state.clubs.map((club, index) => {
             return (
                 <tr key={club.id}>
-                    <td>{club.id}</td>
+                    <td>{this.getPosition(club)}</td>
                     <td><Image src={club.klubSlika} width={50} height={50}  rounded  /> {club.klubNaziv}</td>
                     <td>{club.pobede + club.porazi + club.nereseneUtakmice}</td>
                     <td>{club.pobede}</td>

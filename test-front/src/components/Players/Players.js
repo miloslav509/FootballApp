@@ -68,8 +68,8 @@ class Players extends React.Component {
                     <td>{player.prezime}</td>
                     <td>{player.ime}</td>
                     <th>{player.klubNaziv}</th>
-                    <td>{player.brojGolova}</td>
                     <td>{player.brojAsistencija}</td>
+                    <td>{player.brojGolova}</td>
                 </tr>
             )
         })
@@ -97,8 +97,8 @@ class Players extends React.Component {
                                 <th>Lastname</th>
                                 <th>Name</th>
                                 <th>Club</th>
-                                <th>Goals</th>
-                                <th>Assist</th>
+                                {this.state.sortBy === 0 ? <th>Goals</th> : <th>Assist</th>}
+                                {this.state.sortBy === 0 ? <th>Assist</th> : <th>Goals</th>}
                             </tr>
                         </thead>
                         <tbody>

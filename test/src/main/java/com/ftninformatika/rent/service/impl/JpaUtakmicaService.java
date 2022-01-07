@@ -9,8 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ftninformatika.rent.model.Klub;
+import com.ftninformatika.rent.model.Tabela;
 import com.ftninformatika.rent.model.Utakmica;
 import com.ftninformatika.rent.repository.UtakmicaRepository;
+import com.ftninformatika.rent.service.KlubService;
+import com.ftninformatika.rent.service.TabelaService;
 import com.ftninformatika.rent.service.UtakmicaService;
 
 @Service
@@ -18,6 +21,12 @@ public class JpaUtakmicaService implements UtakmicaService {
 
 	@Autowired
 	private UtakmicaRepository utakmicaRepository;
+	
+	@Autowired
+	private TabelaService tabelaService;
+	
+	@Autowired
+	private KlubService klubService;
 
 	@Override
 	public Utakmica findOne(Long id) {
@@ -92,6 +101,20 @@ public class JpaUtakmicaService implements UtakmicaService {
 
 	@Override
 	public Utakmica update(Utakmica utakmica) {
+		Tabela domacin = tabelaService.findByKlub(utakmica.getKlubDomacin().getId());
+		Tabela gost = tabelaService.findByKlub(utakmica.getKlubGost().getId());
+		
+		if (utakmica.getGoloviDomacin() > utakmica.getGoloviGost()) {
+			domacin.setBodovi(domacin.getBodovi() + 3);
+		} else if (utakmica.getGoloviDomacin() < utakmica.getGoloviGost()) {
+			gost.setBodovi(gost.getBodovi() + 3);
+		} else {
+			gost.setBodovi(gost.getBodovi() + 1);
+			domacin.setBodovi(domacin.getBodovi() + 1);
+		}
+		
+		tabelaService.update(gost);
+		tabelaService.update(domacin);
 		
 		return utakmicaRepository.save(utakmica);
 	}

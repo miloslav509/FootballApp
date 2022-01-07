@@ -80,6 +80,10 @@ class Match extends React.Component {
 
     createComment(e) {
         e.preventDefault();
+        if (!window.localStorage['jwt']) {
+            alert("Yu must be logged in to post a comment");
+            return;
+        }
         var today = new Date();
         var month = today.getMonth() + 1;
         if (month < 10) {

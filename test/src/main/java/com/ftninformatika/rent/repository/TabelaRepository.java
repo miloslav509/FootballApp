@@ -11,4 +11,6 @@ import com.ftninformatika.rent.model.Tabela;
 public interface TabelaRepository extends JpaRepository<Tabela, Long> {
 
 	List<Tabela> findAllByOrderByBodoviDesc ();
+	
+	Tabela findByKlubId(Long id);
 }

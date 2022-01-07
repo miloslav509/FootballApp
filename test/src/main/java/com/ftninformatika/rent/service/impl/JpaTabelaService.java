@@ -48,6 +48,12 @@ public class JpaTabelaService implements TabelaService {
 		}
 		return null;
 	}
+
+	@Override
+	public Tabela findByKlub(Long id) {
+		
+		return tabelaRepository.findByKlubId(id);
+	}
 	
 	
 }
