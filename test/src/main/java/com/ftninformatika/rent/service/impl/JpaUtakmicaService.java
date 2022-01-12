@@ -104,17 +104,20 @@ public class JpaUtakmicaService implements UtakmicaService {
 		Tabela domacin = tabelaService.findByKlub(utakmica.getKlubDomacin().getId());
 		Tabela gost = tabelaService.findByKlub(utakmica.getKlubGost().getId());
 		
-		if (utakmica.getGoloviDomacin() > utakmica.getGoloviGost()) {
-			domacin.setBodovi(domacin.getBodovi() + 3);
-		} else if (utakmica.getGoloviDomacin() < utakmica.getGoloviGost()) {
-			gost.setBodovi(gost.getBodovi() + 3);
-		} else {
-			gost.setBodovi(gost.getBodovi() + 1);
-			domacin.setBodovi(domacin.getBodovi() + 1);
+		if (!utakmica.isOdigrana()) {
+			utakmica.setOdigrana(true);
+			if (utakmica.getGoloviDomacin() > utakmica.getGoloviGost()) {
+				domacin.setBodovi(domacin.getBodovi() + 3);
+			} else if (utakmica.getGoloviDomacin() < utakmica.getGoloviGost()) {
+				gost.setBodovi(gost.getBodovi() + 3);
+			} else {
+				gost.setBodovi(gost.getBodovi() + 1);
+				domacin.setBodovi(domacin.getBodovi() + 1);
+			}
+			
+			tabelaService.update(gost);
+			tabelaService.update(domacin);
 		}
-		
-		tabelaService.update(gost);
-		tabelaService.update(domacin);
 		
 		return utakmicaRepository.save(utakmica);
 	}

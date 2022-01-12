@@ -80,7 +80,6 @@ public class UtakmicaController {
         if(!id.equals(utakmicaDTO.getId())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        System.out.println(utakmicaDTO.isOdigrana());
         Utakmica utakmica = utakmicaDtoToUtakmica.convert(utakmicaDTO);
 
         Utakmica sacuvanaUtakmica = utakmicaService.update(utakmica);

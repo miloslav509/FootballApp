@@ -42,6 +42,8 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 		dto.setOdigrana(utakmica.isOdigrana());
 		dto.setDomacinSlika(utakmica.getKlubDomacin().getSlika());
 		dto.setGostSlika(utakmica.getKlubGost().getSlika());
+		dto.setGoloviDomacin(utakmica.getGoloviDomacin());
+		dto.setGoloviGost(utakmica.getGoloviGost());
 		if (utakmica.isOdigrana()) {
 			dto.setSuteviUGolGost(utakmica.getSuteviUGolGost());
 			dto.setSuteviUGolDomacin(utakmica.getSuteviUGolDomacin());
@@ -50,8 +52,6 @@ public class UtakmicaToUtakmicaDto implements Converter<Utakmica, UtakmicaDTO> {
 			dto.setPosedDomacin(utakmica.getPosedDomacin());
 			dto.setPosedGost(utakmica.getPosedGost());
 			dto.setGolovi(golToGolDTO.convert(utakmica.getGolovi()));
-			dto.setGoloviDomacin(utakmica.getGoloviDomacin());
-			dto.setGoloviGost(utakmica.getGoloviGost());
 			dto.setVideo(utakmica.getVideo());
 			dto.setKomentari(komentarToKomentarDto.convert(utakmica.getKomentari()));
 		}

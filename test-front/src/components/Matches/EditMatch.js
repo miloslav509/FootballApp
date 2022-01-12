@@ -45,7 +45,8 @@ class EditMatch extends React.Component {
             guestPlayers: [],
             hostGoal: hostGoal,
             guestGoal: guestGoal,
-            reffereId: -1
+            reffereId: -1,
+            played: false
         }
     }
 
@@ -81,7 +82,8 @@ class EditMatch extends React.Component {
                     comments: match.komentari,
                     hostImage: match.domacinSlika,
                     guestImage: match.gostSlika,
-                    reffereId: match.sudijaId
+                    reffereId: match.sudijaId,
+                    played: match.odigrana
                 })
                 console.log(this.state);
                 this.getHostPlayers(this.state.hostId);
@@ -170,7 +172,7 @@ class EditMatch extends React.Component {
             posedDomacin: stats.hostPossesion,
             posedGost: stats.guestPossesion,
             video: stats.videoURL,
-            odigrana: true
+            odigrana: stats.played
         }
         console.log(utakmicaDTO)
         AppAxios.put("/utakmice/" + stats.id, utakmicaDTO)
